@@ -77,8 +77,7 @@
     hectares: sum(D.plantations, "hectares"),
     trees: sum(D.plantations, "trees"),
     tonnes: sum(D.harvest, "tonnes"),
-    shops: D.shops.length,
-    since: Math.min.apply(null, D.plantations.map(function (p) { return p.since; }))
+    shops: D.shops.length
   };
 
   // ---- Island tour ---------------------------------------------------------
@@ -98,7 +97,7 @@
     label: D.islandName,
     scene: { mode: "overview", view: "island" },
     html: caption(esc(D.copy.tourLabel), esc(D.islandName) + ".", "",
-      "Desde hace más de " + (new Date().getFullYear() - totals.since) + " años nuestra familia cultiva mangos en los barrancos cálidos del suroeste de la isla. Baja para sobrevolar cada finca.")
+      esc(D.copy.tourText))
   });
 
   var n = D.plantations.length;
