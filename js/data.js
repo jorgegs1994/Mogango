@@ -21,20 +21,21 @@ window.MOGANGO = {
   logo: { src: "images/logo.png", colour: false },
   islandName: "Gran Canaria",
   since: 1978,
-  tagline: "Mangos madurados al sol en los valles de Gran Canaria, cultivados por una misma familia desde 1978.",
+  tagline: "Mangos de Mogán, madurados al sol en sus barrancos y cultivados por una misma familia desde 1978.",
 
   // The words on the page, top to bottom. Wrap a word in *stars* to set it
   // in italics; wrap it in _underscores_ to give it the orange accent;
   // \n starts a new line.
   copy: {
     heroTitle: "Del árbol a tu _mesa._",
-    heroLine: "Fincas de mango familiares · Gran Canaria · desde 1978",
+    heroLine: "Fincas de mango familiares · Mogán · desde 1978",
 
     introLabel: "La finca",
     introTitle: "Empezó con tomates y berenjenas. Hoy son tres fincas y una fruta de la que nunca dejamos de *aprender*.",
     introText: "La luna de miel de los abuelos fue un viaje en carricoche, cargados de fruta para el mercado; esa noche se quedaron en Las Palmas. El negocio empezó delante de su casa, entre dos eucaliptos enormes. A la sombra del de la derecha, el abuelo empaquetaba tomates, o eso se recuerda en casa. Después pasó al almacén del Molino de Viento y empezó con las berenjenas. Las cosas fueron a mejor: alquiló el almacén de los Quesada en El Cercado, sembró en terrenos alquilados por todo el barranco de Mogán y en la playa, en los de doña Concha, y llegó a mandar berenjenas hasta Róterdam. Con los años cambió las berenjenas por mangos. Hoy la familia cuida de tres fincas en Mogán y Tasarte, y cada mango se sigue cogiendo a mano, en su punto.",
 
     tourLabel: "La isla",
+    tourText: "En el suroeste, entre barrancos que bajan al mar, Mogán es tierra de mango: de aquí sale buena parte de la fruta de la isla. Baja para sobrevolar cada finca.",
 
     harvestLabel: "La cosecha",
     harvestTitle: "Cogidos al amanecer. *Empaquetados* a mediodía.",
@@ -44,15 +45,15 @@ window.MOGANGO = {
 
     seasonLabel: "La temporada",
     seasonTitle: "Seis meses de *sol*, una temporada corta.",
-    seasonText: "La primera fruta llega en abril, de los bancales más bajos y calientes. El grueso de la cosecha va de julio a septiembre.",
+    seasonText: "El mango pide unos días frescos en invierno para florecer y después calor, mucho calor. Los barrancos de Mogán, resguardados y mirando al sur, le dan las dos cosas. La primera fruta llega en abril, de los bancales más bajos y calientes. El grueso de la cosecha va de julio a septiembre.",
 
     varietiesLabel: "Lo que cultivamos",
     varietiesTitle: "Tres mangos, tres *caracteres*.",
     varietiesText: "Cada variedad madura a su ritmo y se da mejor en su propio valle. Estas son las nuestras.",
 
     tradeLabel: "Para empresas",
-    tradeTitle: "Mango de Gran Canaria para tu *negocio*.",
-    tradeText: "Vendemos directamente a fruterías, mayoristas, hoteles, restaurantes y distribuidores. Sin intermediarios: la fruta sale de nuestras fincas y llega a tu negocio a través de nuestro puesto en el mercado.",
+    tradeTitle: "Mango de Mogán para tu *negocio*.",
+    tradeText: "Mango cogido en Mogán y vendido en la isla. Vendemos directamente a fruterías, mayoristas, hoteles, restaurantes y distribuidores. Sin intermediarios: la fruta sale de nuestras fincas y llega a tu negocio a través de nuestro puesto en el mercado.",
     tradeTeaser: "Disponibilidad por variedad, formatos y calibres, y cómo pedir presupuesto.",
     calendarLabel: "Cuándo hay de cada uno",
     calendarText: "Para planificar tus pedidos. Las semanas exactas dependen de cada año; te las confirmamos al pedir presupuesto.",
