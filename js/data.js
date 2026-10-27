@@ -31,8 +31,8 @@ window.MOGANGO = {
     heroLine: "Finca familiar · desde 1978",
 
     introLabel: "La finca",
-    introTitle: "Empezó con tomates y berenjenas. Hoy son tres fincas y una fruta de la que nunca dejamos de *aprender*.",
-    introText: "La luna de miel de los abuelos fue un viaje en carricoche, cargados de fruta para el mercado; esa noche se quedaron en Las Palmas. El negocio empezó delante de su casa, entre dos eucaliptos enormes. A la sombra del de la derecha, el abuelo empaquetaba tomates, o eso se recuerda en casa. Después pasó al almacén del Molino de Viento y empezó con las berenjenas. Las cosas fueron a mejor: alquiló el almacén de los Quesada en El Cercado, sembró en terrenos alquilados por todo el barranco de Mogán y en la playa, en los de doña Concha, y llegó a mandar berenjenas hasta Róterdam. Con los años cambió las berenjenas por mangos. Hoy la familia cuida de tres fincas en Mogán y Tasarte, y cada mango se sigue cogiendo a mano, en su punto.",
+    introTitle: "Empezó con tomates y berenjenas. Hoy son dos fincas y una fruta de la que nunca dejamos de *aprender*.",
+    introText: "La luna de miel de los abuelos fue un viaje en carricoche, cargados de fruta para el mercado; esa noche se quedaron en Las Palmas. El negocio empezó delante de su casa, entre dos eucaliptos enormes. A la sombra del de la derecha, el abuelo empaquetaba tomates, o eso se recuerda en casa. Después pasó al almacén del Molino de Viento y empezó con las berenjenas. Las cosas fueron a mejor: alquiló el almacén de los Quesada en El Cercado, sembró en terrenos alquilados por todo el barranco de Mogán y en la playa, en los de doña Concha, y llegó a mandar berenjenas hasta Róterdam. Con los años cambió las berenjenas por mangos. Hoy la familia cuida de dos fincas en el barranco de Mogán, y cada mango se sigue cogiendo a mano, en su punto.",
 
     tourLabel: "La isla",
     tourText: "En el suroeste, entre barrancos que bajan al mar, Mogán es tierra de mango: de aquí sale buena parte de la fruta de la isla. Baja para sobrevolar cada finca.",
@@ -49,7 +49,7 @@ window.MOGANGO = {
 
     varietiesLabel: "Lo que cultivamos",
     varietiesTitle: "Tres mangos, tres *caracteres*.",
-    varietiesText: "Las tres crecen en nuestras tres fincas, y cada una madura a su ritmo. Estas son las nuestras.",
+    varietiesText: "Las tres crecen en nuestras dos fincas, y cada una madura a su ritmo. Estas son las nuestras.",
 
     tradeLabel: "Para empresas",
     tradeTitle: "Mango de Mogán para tu *negocio*.",
@@ -87,9 +87,9 @@ window.MOGANGO = {
     island: [[-15.84, 27.73], [-15.35, 28.19]]
   },
 
-  // The family's three fincas, at their exact locations. Sizes, tree
+  // The family's two fincas, at their exact locations. Sizes, tree
   // counts, years and stories are still placeholders. All three varieties
-  // grow at every finca.
+  // grow at both fincas.
   // `camera` sets the map's angle for each finca: `bearing` is the compass
   // direction the camera looks (0 = north) and `pitch` how far it tilts from
   // straight down. Look along a ravine, not across it, or the ridges hide
@@ -112,15 +112,6 @@ window.MOGANGO = {
       camera: { bearing: 25, pitch: 50 },
       hectares: 45, trees: 5100, since: 1994,
       blurb: "Más arriba en el barranco, en el llano que da nombre a la finca. El sol de la tarde les da a estos mangos su color rojo intenso."
-    },
-    {
-      id: "tasarte",
-      name: "Finca de Tasarte",
-      region: "Barranco de Tasarte",
-      lat: 27.89072, lon: -15.78169,
-      camera: { bearing: 6, pitch: 64 },
-      hectares: 29, trees: 3300, since: 2003,
-      blurb: "Un barranco tranquilo que baja hasta la costa oeste. Bancales cálidos y resguardados donde el mango madura despacio y dulce."
     }
   ],
 
