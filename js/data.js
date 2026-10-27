@@ -188,6 +188,6 @@ window.MOGANGO = {
   contact: {
     email: "hola@mogango.example",
     phone: "+34 000 000 000",
-    address: "Almacén de empaquetado, Arguineguín, Gran Canaria"
+    address: "Almacén de empaquetado, Mogán, Gran Canaria"
   }
 };
