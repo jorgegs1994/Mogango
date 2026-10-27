@@ -1,7 +1,9 @@
 /*
  * The island map, built on Mapbox: dusk satellite imagery with 3D terrain
- * and the family's fincas. Mapbox handles the camera; this file only says
- * where to look.
+ * and the family's fincas. The camera is flown here rather than by Mapbox:
+ * Mapbox keeps its camera a set distance above the ground under the map's
+ * centre, so over the ravines it bobbed up and down with every ridge. Ours
+ * flies at a steady height and rises a little between distant stops.
  */
 (function () {
   "use strict";
@@ -19,6 +21,10 @@
   }
 
   var ACCENT = "#E8891C";
+
+  // The ground height the camera is measured from, in metres. The fincas
+  // sit on terraces a few hundred metres up.
+  var BASE_ALTITUDE = 300;
 
   function easeInOut(t) {
     return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
@@ -143,19 +149,70 @@
       self.groveMarkers[id].getElement().classList.toggle("is-active", on);
       map.setFeatureState({ source: "groves", id: id }, { active: on });
     });
-    // Slow, gentle camera moves, so the flights feel filmed rather than animated.
-    var move = { padding: this.padding(), duration: reduceMotion ? 0 : 4200, easing: easeInOut, curve: 1.2, essential: true };
+    // Each view becomes a plain camera (centre, zoom, pitch, bearing) with the
+    // caption padding already worked in, then the camera flies there.
+    var padding = this.padding(), to;
     if (scene.view === "groves") {
       // Frame all the groves together, close enough that their names don't overlap.
       var lons = this.data.plantations.map(function (p) { return p.lon; });
       var lats = this.data.plantations.map(function (p) { return p.lat; });
-      map.fitBounds([[Math.min.apply(null, lons), Math.min.apply(null, lats)], [Math.max.apply(null, lons), Math.max.apply(null, lats)]],
-        Object.assign(move, { pitch: 45, bearing: -10, maxZoom: 13 }));
+      to = map.cameraForBounds([[Math.min.apply(null, lons), Math.min.apply(null, lats)], [Math.max.apply(null, lons), Math.max.apply(null, lats)]],
+        { padding: padding, pitch: 45, bearing: -10, maxZoom: 13 });
+      to.pitch = 45; to.bearing = -10;
     } else if (scene.view === "island") {
-      map.fitBounds(this.data.mapbox.island, Object.assign(move, { pitch: 0, bearing: 0 }));
+      to = map.cameraForBounds(this.data.mapbox.island, { padding: padding, pitch: 0, bearing: 0 });
+      to.pitch = 0; to.bearing = 0;
     } else if (scene.view) {
-      map.flyTo(Object.assign(move, { center: scene.view.center, zoom: scene.view.zoom, pitch: scene.view.pitch || 0, bearing: scene.view.bearing || 0 }));
+      var v = scene.view, e = 0.0005;
+      to = map.cameraForBounds([[v.center[0] - e, v.center[1] - e], [v.center[0] + e, v.center[1] + e]],
+        { padding: padding, pitch: v.pitch || 0, bearing: v.bearing || 0, maxZoom: v.zoom });
+      to.zoom = v.zoom; to.pitch = v.pitch || 0; to.bearing = v.bearing || 0;
     }
+    if (to) this.fly(to);
+  };
+
+  // Where the camera sits for a given centre, zoom, pitch and bearing,
+  // measured from BASE_ALTITUDE instead of from the terrain.
+  FarmMap.prototype.place = function (cam) {
+    var map = this.map, t = map.transform;
+    var fov = (t.fov || 36.87) * Math.PI / 180;
+    var dist = (t.height / 2 / Math.tan(fov / 2)) / (512 * Math.pow(2, cam.zoom));
+    var c = mapboxgl.MercatorCoordinate.fromLngLat(cam.center, BASE_ALTITUDE);
+    var p = cam.pitch * Math.PI / 180, b = cam.bearing * Math.PI / 180, back = dist * Math.sin(p);
+    var opts = map.getFreeCameraOptions();
+    opts.position = new mapboxgl.MercatorCoordinate(c.x - back * Math.sin(b), c.y + back * Math.cos(b), c.z + dist * Math.cos(p));
+    opts.setPitchBearing(cam.pitch, cam.bearing);
+    map.setFreeCameraOptions(opts);
+  };
+
+  // A slow flight from wherever the camera is now. Between stops that are
+  // far apart it rises enough to keep both in view, then settles back down.
+  FarmMap.prototype.fly = function (to) {
+    var self = this, map = this.map;
+    var target = { center: mapboxgl.LngLat.convert(to.center), zoom: to.zoom, pitch: to.pitch, bearing: to.bearing };
+    var from = this.cam || { center: map.getCenter(), zoom: map.getZoom(), pitch: map.getPitch(), bearing: map.getBearing() };
+    cancelAnimationFrame(this.frame);
+    if (reduceMotion) { this.cam = target; this.place(target); return; }
+
+    var a = mapboxgl.MercatorCoordinate.fromLngLat(from.center), z = mapboxgl.MercatorCoordinate.fromLngLat(target.center);
+    var span = Math.hypot(z.x - a.x, z.y - a.y);
+    var fit = span ? Math.log2(0.6 * map.transform.width / (span * 512)) : Infinity;
+    var rise = Math.max(0, (from.zoom + target.zoom) / 2 - Math.min(from.zoom, target.zoom, fit));
+    var turn = ((target.bearing - from.bearing + 540) % 360) - 180;
+    var start = performance.now(), dur = 5200;
+
+    (function step(now) {
+      var t = Math.min(1, (now - start) / dur), e = easeInOut(t);
+      var c = new mapboxgl.MercatorCoordinate(a.x + (z.x - a.x) * e, a.y + (z.y - a.y) * e);
+      self.cam = {
+        center: c.toLngLat(),
+        zoom: from.zoom + (target.zoom - from.zoom) * e - rise * Math.sin(Math.PI * e),
+        pitch: from.pitch + (target.pitch - from.pitch) * e,
+        bearing: from.bearing + turn * e
+      };
+      self.place(self.cam);
+      if (t < 1) self.frame = requestAnimationFrame(step);
+    })(start);
   };
 
   window.FarmMap = FarmMap;

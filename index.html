@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="es" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mogango | Family mango farm, Gran Canaria</title>
-  <meta name="description" content="Mogango is a family mango farm on Gran Canaria. Three fincas, hand-picked fruit, and a short drive from our trees to your table.">
+  <title>Mogango | Mangos de una familia, Gran Canaria</title>
+  <meta name="description" content="Mogango cultiva mangos en tres fincas familiares de Gran Canaria. Fruta cogida a mano, del árbol a tu mesa en dos días.">
   <meta name="theme-color" content="#12160F">
   <script>
     // Hide the hero headline until js/motion.js is ready to reveal it.
@@ -17,18 +17,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css">
-  <link rel="stylesheet" href="css/styles.css?v=6">
+  <link rel="stylesheet" href="css/styles.css?v=8">
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+  <a class="skip" href="#main">Saltar al contenido</a>
 
   <header class="topbar">
-    <a class="wordmark" href="#top" aria-label="Mogango, back to top"><span class="logo" aria-hidden="true"></span></a>
-    <nav class="topnav" aria-label="Sections">
+    <a class="wordmark" href="#top" aria-label="Mogango, volver arriba"><span class="logo" aria-hidden="true"></span></a>
+    <nav class="topnav" aria-label="Secciones">
       <a href="#story">Fincas</a>
-      <a href="#season" class="hide-sm">Season</a>
-      <a href="#varieties" class="hide-sm">Varieties</a>
-      <a href="#contact">Contact</a>
+      <a href="#season" class="hide-sm">Temporada</a>
+      <a href="#varieties" class="hide-sm">Variedades</a>
+      <a href="#contact">Contacto</a>
     </nav>
   </header>
 
@@ -39,7 +39,7 @@
         <h1 class="display reveal" data-copy="heroTitle"></h1>
         <p class="label hero-line" data-copy="heroLine"></p>
       </div>
-      <a class="scroll-cue label" href="#intro"><span>Scroll</span><i aria-hidden="true"></i></a>
+      <a class="scroll-cue label" href="#intro"><span>Bajar</span><i aria-hidden="true"></i></a>
     </section>
 
     <section id="intro" class="intro" data-theme="light" aria-labelledby="intro-title">
@@ -48,20 +48,20 @@
       <div class="intro-body">
         <div class="intro-photo" data-photo="family"></div>
         <div class="intro-text">
-          <p class="since"><span class="label">Est.</span><span class="since-year" data-bind="since"></span></p>
+          <p class="since"><span class="label">Desde</span><span class="since-year" data-bind="since"></span></p>
           <p class="body-text" data-copy="introText"></p>
         </div>
       </div>
     </section>
 
     <section id="story" class="story" data-theme="dark" aria-labelledby="story-title">
-      <h2 id="story-title" class="visually-hidden">A tour of our fincas</h2>
+      <h2 id="story-title" class="visually-hidden">Un recorrido por nuestras fincas</h2>
       <div class="map-stage">
-        <div id="map" role="region" aria-label="Map of Gran Canaria showing our fincas"></div>
+        <div id="map" role="region" aria-label="Mapa de Gran Canaria con nuestras fincas"></div>
         <div class="map-shade" aria-hidden="true"></div>
         <div class="map-hud">
           <p class="label hud-count" aria-hidden="true"><span id="hud-index">01</span> / <span id="hud-total"></span></p>
-          <nav class="rail" id="rail" aria-label="Tour stops"></nav>
+          <nav class="rail" id="rail" aria-label="Paradas del recorrido"></nav>
         </div>
       </div>
       <div class="steps" id="steps"></div>
@@ -73,10 +73,10 @@
         <h2 id="harvest-title" class="display-md reveal" data-copy="harvestTitle"></h2>
       </div>
       <div class="harvest-grid">
-        <figure class="harvest-a"><div data-photo="picking"></div><figcaption class="label">01 · Picking</figcaption></figure>
-        <figure class="harvest-b"><div data-photo="crates"></div><figcaption class="label">02 · The crates</figcaption></figure>
+        <figure class="harvest-a"><div data-photo="picking"></div><figcaption class="label">01 · La recogida</figcaption></figure>
+        <figure class="harvest-b"><div data-photo="crates"></div><figcaption class="label">02 · Las cajas</figcaption></figure>
         <p class="harvest-text body-text" data-copy="harvestText"></p>
-        <figure class="harvest-c"><div data-photo="packing"></div><figcaption class="label">03 · The packing house, Arguineguín</figcaption></figure>
+        <figure class="harvest-c"><div data-photo="packing"></div><figcaption class="label">03 · El almacén, Arguineguín</figcaption></figure>
       </div>
     </section>
 
@@ -96,7 +96,7 @@
         <figcaption class="strip-foot">
           <span class="label" id="strip-note"></span>
           <details class="strip-table">
-            <summary class="label">Show as table</summary>
+            <summary class="label">Ver como tabla</summary>
             <table id="strip-table"></table>
           </details>
         </figcaption>
@@ -109,7 +109,7 @@
           <p class="label section-label" data-copy="varietiesLabel"></p>
           <h2 id="varieties-title" class="display-md reveal" data-copy="varietiesTitle"></h2>
           <p class="body-text" data-copy="varietiesText"></p>
-          <p class="label v-hint" aria-hidden="true">Keep scrolling <i></i></p>
+          <p class="label v-hint" aria-hidden="true">Sigue bajando <i></i></p>
         </div>
       </div>
     </section>
@@ -125,20 +125,20 @@
   <footer id="contact" class="footer" data-theme="dark">
     <div class="footer-cols">
       <div>
-        <h2 class="label">The farm</h2>
+        <h2 class="label">La finca</h2>
         <p class="footer-tag" data-bind="tagline"></p>
       </div>
       <div>
-        <h2 class="label">Write or visit</h2>
+        <h2 class="label">Escríbenos o visítanos</h2>
         <p id="contact-lines"></p>
       </div>
       <div class="footer-shops">
-        <h2 class="label">Find our mangoes</h2>
+        <h2 class="label">Dónde encontrarlos</h2>
         <ul id="shop-list" class="shop-list"></ul>
       </div>
     </div>
     <p class="giant" aria-hidden="true"><span class="logo"></span></p>
-    <p class="fineprint label"><span>&copy; <span id="year"></span> <span data-bind="farmName">Mogango</span></span><span>Grown and picked by hand on Gran Canaria</span></p>
+    <p class="fineprint label"><span>&copy; <span id="year"></span> <span data-bind="farmName">Mogango</span></span><span>Cultivados y cogidos a mano en Gran Canaria</span></p>
   </footer>
 
   <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
@@ -146,9 +146,9 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script>
-  <script src="js/data.js?v=6"></script>
-  <script src="js/map.js?v=6"></script>
-  <script src="js/main.js?v=6"></script>
-  <script src="js/motion.js?v=6"></script>
+  <script src="js/data.js?v=8"></script>
+  <script src="js/map.js?v=8"></script>
+  <script src="js/main.js?v=8"></script>
+  <script src="js/motion.js?v=8"></script>
 </body>
 </html>

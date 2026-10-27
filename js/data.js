@@ -21,47 +21,47 @@ window.MOGANGO = {
   logo: { src: "images/logo.png", colour: false },
   islandName: "Gran Canaria",
   since: 1978,
-  tagline: "Sun-ripened mangoes from the valleys of Gran Canaria, grown by one family since 1978.",
+  tagline: "Mangos madurados al sol en los valles de Gran Canaria, cultivados por una misma familia desde 1978.",
 
   // The words on the page, top to bottom. Wrap a word in *stars* to set it
   // in italics; wrap it in _underscores_ to give it the orange accent;
   // \n starts a new line.
   copy: {
-    heroTitle: "From our trees to your _table._",
-    heroLine: "Family mango farm · Gran Canaria · since 1978",
+    heroTitle: "Del árbol a tu _mesa._",
+    heroLine: "Fincas de mango familiares · Gran Canaria · desde 1978",
 
-    introLabel: "The farm",
-    introTitle: "Three generations, three fincas and one fruit we have never stopped *learning* about.",
-    introText: "Our grandfather planted two hundred trees on the terraces of the Mogán valley in 1978. Today the family looks after three fincas in the Mogán and Tasarte valleys. Every mango is still picked by hand, at the moment it is ready, and on a shop shelf within two days.",
+    introLabel: "La finca",
+    introTitle: "Tres generaciones, tres fincas y una fruta de la que nunca dejamos de *aprender*.",
+    introText: "Nuestro abuelo plantó doscientos árboles en los bancales del barranco de Mogán en 1978. Hoy la familia cuida de tres fincas en Mogán y Tasarte. Cada mango se sigue cogiendo a mano, en su punto justo, y en menos de dos días está en la tienda.",
 
-    tourLabel: "The island",
+    tourLabel: "La isla",
 
-    harvestLabel: "Harvest",
-    harvestTitle: "Picked at dawn. *Packed* by noon.",
-    harvestText: "The crews start before the heat, cutting each mango with a short piece of stem so the sap stays inside. By midday the crates are at the packing house, where every fruit is washed, sorted by hand and cooled.",
+    harvestLabel: "La cosecha",
+    harvestTitle: "Cogidos al amanecer. *Empaquetados* a mediodía.",
+    harvestText: "La cuadrilla empieza antes de que apriete el calor y corta cada mango con un trocito de rabo para que no pierda la savia. A mediodía las cajas ya están en el almacén, donde cada fruta se lava, se selecciona a mano y se enfría.",
 
-    numbersLabel: "In numbers",
+    numbersLabel: "En cifras",
 
-    seasonLabel: "The season",
-    seasonTitle: "Six months of *sun*, one short season.",
-    seasonText: "The first fruit comes in April from the warmest, lowest terraces. Most of the harvest falls between July and September.",
+    seasonLabel: "La temporada",
+    seasonTitle: "Seis meses de *sol*, una temporada corta.",
+    seasonText: "La primera fruta llega en abril, de los bancales más bajos y calientes. El grueso de la cosecha va de julio a septiembre.",
 
-    varietiesLabel: "What we grow",
-    varietiesTitle: "Three mangoes, three *characters*.",
-    varietiesText: "Each variety ripens at its own pace and suits its own valley. These are the ones we grow.",
+    varietiesLabel: "Lo que cultivamos",
+    varietiesTitle: "Tres mangos, tres *caracteres*.",
+    varietiesText: "Cada variedad madura a su ritmo y se da mejor en su propio valle. Estas son las nuestras.",
 
-    closingLine: "Months of sun.\n*One bite.*"
+    closingLine: "Meses de sol.\n*Un bocado.*"
   },
 
   // Every photo on the page. `alt` is read aloud by screen readers; `note`
   // is shown in the placeholder and tells the family what to shoot.
   photos: {
-    hero:     { src: "images/hero-grove.jpg",     alt: "Terraces of mango trees climbing the Mogán valley under a clear blue sky", note: "Trees on the terraces" },
-    family:   { src: "images/family.jpg",         alt: "Our grandfather sitting under a mango tree beside a branch heavy with fruit", note: "The family among the trees" },
-    picking:  { src: "images/picking.jpg",        alt: "Walking back down the finca path with fresh mangoes in both hands", note: "Picking" },
-    crates:   { src: "images/crates.jpg",         alt: "Crates full of freshly picked mangoes, stacked in the packing house", note: "Full crates" },
-    packing:  { src: "images/packing-house.jpg",  alt: "Pallets of Mogango boxes stacked high in the packing house", note: "The packing house" },
-    cut:      { src: "images/mango-cut.jpg",      alt: "A ripe mango cut open to its golden flesh, held over a barrow of fresh-picked fruit", note: "A cut mango" }
+    hero:     { src: "images/hero-grove.jpg",     alt: "Bancales de mangos subiendo por el barranco de Mogán bajo un cielo azul", note: "Árboles en los bancales" },
+    family:   { src: "images/family.jpg",         alt: "Nuestro abuelo sentado bajo un mango, junto a una rama cargada de fruta", note: "La familia entre los árboles" },
+    picking:  { src: "images/picking.jpg",        alt: "Bajando por el camino de la finca con mangos recién cogidos en las manos", note: "La recogida" },
+    crates:   { src: "images/crates.jpg",         alt: "Cajas llenas de mangos recién cogidos, apiladas en el almacén", note: "Cajas llenas" },
+    packing:  { src: "images/packing-house.jpg",  alt: "Palés de cajas de Mogango apilados en el almacén", note: "El almacén" },
+    cut:      { src: "images/mango-cut.jpg",      alt: "Un mango maduro abierto, con la pulpa dorada, sobre una carretilla de fruta recién cogida", note: "Un mango abierto" }
   },
 
   // The map comes from Mapbox (https://www.mapbox.com). Paste your public
@@ -81,29 +81,29 @@ window.MOGANGO = {
     {
       id: "molino",
       name: "Finca Molino de Viento",
-      region: "Mogán valley",
+      region: "Barranco de Mogán",
       lat: 27.87506, lon: -15.72661,
       hectares: 38, trees: 4200, since: 1978,
       varieties: ["Kent", "Osteen"],
-      blurb: "Where it all started. Grandpa planted the first 200 trees on the terraces of the Mogán valley."
+      blurb: "Donde empezó todo. El abuelo plantó aquí los primeros 200 árboles, en los bancales del barranco de Mogán."
     },
     {
       id: "llanos",
       name: "Finca Los Llanos",
-      region: "Mogán valley",
+      region: "Barranco de Mogán",
       lat: 27.89222, lon: -15.719,
       hectares: 45, trees: 5100, since: 1994,
       varieties: ["Tommy Atkins", "Osteen"],
-      blurb: "Higher up the valley, on the flat land that gives the finca its name. The afternoon sun gives these mangoes their deep red blush."
+      blurb: "Más arriba en el barranco, en el llano que da nombre a la finca. El sol de la tarde les da a estos mangos su color rojo intenso."
     },
     {
       id: "tasarte",
       name: "Finca de Tasarte",
-      region: "Tasarte valley",
+      region: "Barranco de Tasarte",
       lat: 27.89072, lon: -15.78169,
       hectares: 29, trees: 3300, since: 2003,
       varieties: ["Kent", "Tommy Atkins"],
-      blurb: "A quiet valley running down to the west coast. Warm, sheltered terraces where the Kent ripens slowly and sweet."
+      blurb: "Un barranco tranquilo que baja hasta la costa oeste. Bancales cálidos y resguardados donde el Kent madura despacio y dulce."
     }
   ],
 
@@ -118,36 +118,36 @@ window.MOGANGO = {
 
   // Tonnes harvested per month, used by the season strip.
   harvest: [
-    { month: "Jan", name: "January",   tonnes: 0 },
-    { month: "Feb", name: "February",  tonnes: 0 },
-    { month: "Mar", name: "March",     tonnes: 0 },
-    { month: "Apr", name: "April",     tonnes: 6 },
-    { month: "May", name: "May",       tonnes: 24 },
-    { month: "Jun", name: "June",      tonnes: 70 },
-    { month: "Jul", name: "July",      tonnes: 165 },
-    { month: "Aug", name: "August",    tonnes: 210 },
-    { month: "Sep", name: "September", tonnes: 150 },
-    { month: "Oct", name: "October",   tonnes: 72 },
-    { month: "Nov", name: "November",  tonnes: 18 },
-    { month: "Dec", name: "December",  tonnes: 0 }
+    { month: "Ene", name: "enero",     tonnes: 0 },
+    { month: "Feb", name: "febrero",   tonnes: 0 },
+    { month: "Mar", name: "marzo",     tonnes: 0 },
+    { month: "Abr", name: "abril",     tonnes: 6 },
+    { month: "May", name: "mayo",      tonnes: 24 },
+    { month: "Jun", name: "junio",     tonnes: 70 },
+    { month: "Jul", name: "julio",     tonnes: 165 },
+    { month: "Ago", name: "agosto",    tonnes: 210 },
+    { month: "Sep", name: "septiembre",tonnes: 150 },
+    { month: "Oct", name: "octubre",   tonnes: 72 },
+    { month: "Nov", name: "noviembre", tonnes: 18 },
+    { month: "Dic", name: "diciembre", tonnes: 0 }
   ],
 
   // The three mangoes we grow. Seasons are approximate.
   varieties: [
-    { name: "Tommy Atkins", season: "July to August",
-      taste: "Firm, travels well, with the deep red blush you see in every picture.",
-      photo: { src: "images/tommy-atkins.jpg", alt: "A cluster of deep red Tommy Atkins mangoes hanging from the tree", note: "Tommy Atkins mangoes on the tree" } },
-    { name: "Kent",         season: "August to October",
-      taste: "Rich and sweet with almost no fibre. Best eaten with a spoon.",
-      photo: { src: "images/kent.jpg",         alt: "A large green Kent mango with a soft red blush, hanging among the leaves", note: "A Kent mango on the tree" } },
-    { name: "Osteen",       season: "September to November",
-      taste: "Long and purple-skinned, with firm, juicy flesh and almost no fibre. The late one.",
-      photo: { src: "images/osteen.jpg",       alt: "Purple Osteen mangoes hanging from the tree among dark green leaves", note: "Osteen mangoes on the tree" } }
+    { name: "Tommy Atkins", season: "Julio a agosto",
+      taste: "Firme, aguanta bien el viaje y tiene ese rojo intenso que sale en todas las fotos.",
+      photo: { src: "images/tommy-atkins.jpg", alt: "Un racimo de mangos Tommy Atkins de un rojo intenso colgando del árbol", note: "Mangos Tommy Atkins en el árbol" } },
+    { name: "Kent",         season: "Agosto a octubre",
+      taste: "Dulce e intenso, casi sin hebra. Para comerlo a cucharadas.",
+      photo: { src: "images/kent.jpg",         alt: "Un mango Kent grande, verde con un toque rojizo, colgando entre las hojas", note: "Un mango Kent en el árbol" } },
+    { name: "Osteen",       season: "Septiembre a noviembre",
+      taste: "Alargado y de piel morada, con la pulpa firme, jugosa y casi sin hebra. El tardío.",
+      photo: { src: "images/osteen.jpg",       alt: "Mangos Osteen morados colgando del árbol entre hojas verde oscuro", note: "Mangos Osteen en el árbol" } }
   ],
 
   contact: {
     email: "hola@mogango.example",
     phone: "+34 000 000 000",
-    address: "The Packing House, Arguineguín, Gran Canaria"
+    address: "Almacén de empaquetado, Arguineguín, Gran Canaria"
   }
 };

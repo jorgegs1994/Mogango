@@ -7,7 +7,7 @@
   "use strict";
 
   var D = window.MOGANGO;
-  var fmt = new Intl.NumberFormat("en");
+  var fmt = new Intl.NumberFormat("es");
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function $(sel, root) { return (root || document).querySelector(sel); }
@@ -67,7 +67,7 @@
     img.addEventListener("error", function () { box.classList.add("is-missing"); img.remove(); });
     img.src = p.src;
     box.appendChild(img);
-    box.appendChild(h("span", "photo-note label", "Photo · " + esc(p.note)));
+    box.appendChild(h("span", "photo-note label", "Foto · " + esc(p.note)));
   }
   $$("[data-photo]").forEach(function (box) {
     photo(box, D.photos[box.getAttribute("data-photo")], box.hasAttribute("data-eager"));
@@ -98,11 +98,11 @@
     label: D.islandName,
     scene: { mode: "overview", view: "island" },
     html: caption(esc(D.copy.tourLabel), esc(D.islandName) + ".", "",
-      "For more than " + (new Date().getFullYear() - totals.since) + " years our family has grown mangoes in the warm valleys of the island's south-west. Scroll to fly over every finca.")
+      "Desde hace más de " + (new Date().getFullYear() - totals.since) + " años nuestra familia cultiva mangos en los barrancos cálidos del suroeste de la isla. Baja para sobrevolar cada finca.")
   });
 
   var n = D.plantations.length;
-  var WORDS = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"];
+  var WORDS = ["", "Una", "Dos", "Tres", "Cuatro", "Cinco", "Seis", "Siete", "Ocho", "Nueve", "Diez"];
   D.plantations.forEach(function (p, i) {
     steps.push({
       label: p.name,
@@ -110,17 +110,17 @@
       // Each grove gets a slightly different angle, so the flights feel like a tour.
       scene: { mode: "plantation", plantation: p.id, view: { center: [p.lon, p.lat], zoom: 13.6, pitch: 64, bearing: -30 + i * 18 } },
       html: caption("Finca " + pad(i + 1) + " / " + pad(n) + " · " + esc(p.region), esc(p.name),
-        fmt.format(p.hectares) + " ha <i>·</i> " + fmt.format(p.trees) + " trees <i>·</i> since " + p.since,
-        esc(p.blurb), "Grows " + p.varieties.map(esc).join(", "))
+        fmt.format(p.hectares) + " ha <i>·</i> " + fmt.format(p.trees) + " árboles <i>·</i> desde " + p.since,
+        esc(p.blurb), "Cultiva " + p.varieties.map(esc).join(", "))
     });
   });
 
   steps.push({
-    label: "All " + n + " fincas",
+    label: "Las " + n + " fincas",
     scene: { mode: "all", view: "groves" },
-    html: caption("Together", (WORDS[n] || n) + " fincas, one family.",
-      fmt.format(totals.hectares) + " ha <i>·</i> " + fmt.format(totals.trees) + " trees",
-      "Different soils and different winds give each finca its own flavour.")
+    html: caption("Juntas", (WORDS[n] || n) + " fincas, una familia.",
+      fmt.format(totals.hectares) + " ha <i>·</i> " + fmt.format(totals.trees) + " árboles",
+      "Cada suelo y cada viento le dan a cada finca su propio sabor.")
   });
 
   var stepsRoot = $("#steps"), rail = $("#rail");
@@ -136,7 +136,7 @@
     var tick = h("a", "rail-tick");
     tick.href = "#step-" + i;
     tick.title = s.label;
-    tick.setAttribute("aria-label", "Go to " + s.label);
+    tick.setAttribute("aria-label", "Ir a " + s.label);
     tick.addEventListener("click", function (e) { e.preventDefault(); goToStep(i); });
     rail.appendChild(tick);
     s.tick = tick;
@@ -174,10 +174,10 @@
   // ---- Numbers -------------------------------------------------------------
 
   var stats = [
-    { value: totals.hectares, label: "Hectares of orchard" },
-    { value: totals.trees, label: "Mango trees" },
-    { value: totals.tonnes, label: "Tonnes a season" },
-    { value: totals.shops, label: "Shops that sell them" }
+    { value: totals.hectares, label: "Hectáreas de cultivo" },
+    { value: totals.trees, label: "Mangos plantados" },
+    { value: totals.tonnes, label: "Toneladas por temporada" },
+    { value: totals.shops, label: "Tiendas que los venden" }
   ];
   var statsRoot = $("#stats");
   stats.forEach(function (s) {
@@ -207,20 +207,20 @@
   // peak harvest.
 
   var peak = D.harvest.reduce(function (a, b) { return b.tonnes > a.tonnes ? b : a; });
-  var note = "Peak season is " + peak.name + ", with " + fmt.format(peak.tonnes) + " tonnes picked.";
+  var note = "El pico de la temporada es " + peak.name + ", con " + fmt.format(peak.tonnes) + " toneladas cogidas.";
   $("#strip-note").textContent = note;
   var strip = $("#strip");
-  strip.setAttribute("aria-label", "Tonnes harvested per month, January to December. " + note);
+  strip.setAttribute("aria-label", "Toneladas cosechadas por mes, de enero a diciembre. " + note);
   strip.innerHTML = D.harvest.map(function (m) {
     var isPeak = m === peak;
     return "<div class='m" + (isPeak ? " is-peak" : "") + (m.tonnes ? "" : " is-zero") + "' style='--v:" + (m.tonnes / peak.tonnes).toFixed(3) + "'>" +
-      (isPeak ? "<span class='m-peak label'>Peak · " + fmt.format(m.tonnes) + " t</span>" : "") +
+      (isPeak ? "<span class='m-peak label'>Pico · " + fmt.format(m.tonnes) + " t</span>" : "") +
       "<span class='m-fill'></span>" +
       "<span class='m-name label'><b>" + m.month.charAt(0) + "</b><span>" + m.month.slice(1) + "</span></span>" +
       "<span class='m-t'>" + (m.tonnes ? fmt.format(m.tonnes) : "–") + "</span></div>";
   }).join("");
-  $("#strip-table").innerHTML = "<caption class='visually-hidden'>Tonnes harvested per month</caption>" +
-    "<thead><tr><th scope='col'>Month</th><th scope='col'>Tonnes</th></tr></thead><tbody>" +
+  $("#strip-table").innerHTML = "<caption class='visually-hidden'>Toneladas cosechadas por mes</caption>" +
+    "<thead><tr><th scope='col'>Mes</th><th scope='col'>Toneladas</th></tr></thead><tbody>" +
     D.harvest.map(function (m) { return "<tr><th scope='row'>" + m.name + "</th><td>" + fmt.format(m.tonnes) + "</td></tr>"; }).join("") + "</tbody>";
 
   // ---- Varieties -----------------------------------------------------------
@@ -236,7 +236,7 @@
       "<p class='label'>" + pad(i + 1) + " / " + pad(D.varieties.length) + " <i>·</i> " + esc(v.season) + "</p>" +
       "<h3 class='v-name reveal' id='variety-" + i + "'>" + esc(v.name) + "</h3>" +
       "<p class='v-taste'>" + esc(v.taste) + "</p>" +
-      "<p class='label v-grows'>Grows at " + groves.map(function (p) {
+      "<p class='label v-grows'>Se cultiva en " + groves.map(function (p) {
         return "<a href='#' data-grove='" + p.id + "'>" + esc(p.name) + "</a>";
       }).join(", ") + "</p></div>";
     photo($(".v-media", panel), v.photo);
