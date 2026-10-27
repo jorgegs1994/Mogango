@@ -3,7 +3,7 @@
  * and the family's fincas. The camera is flown here rather than by Mapbox:
  * Mapbox keeps its camera a set distance above the ground under the map's
  * centre, so over the ravines it bobbed up and down with every ridge. Ours
- * flies at a steady height and rises a little between distant stops.
+ * flies at a steady height, straight from one stop to the next.
  */
 (function () {
   "use strict";
@@ -188,8 +188,9 @@
     map.setFreeCameraOptions(opts);
   };
 
-  // A slow flight from wherever the camera is now. Between stops that are
-  // far apart it rises enough to keep both in view, then settles back down.
+  // A flight from wherever the camera is now. Between stops that are
+  // far apart, and both zoomed in, it rises just enough to keep both in
+  // view; it never pulls back further than the wider of the two views.
   FarmMap.prototype.fly = function (to) {
     var self = this, map = this.map;
     var target = { center: mapboxgl.LngLat.convert(to.center), zoom: to.zoom, pitch: to.pitch, bearing: to.bearing };
@@ -200,13 +201,17 @@
     var a = mapboxgl.MercatorCoordinate.fromLngLat(from.center), z = mapboxgl.MercatorCoordinate.fromLngLat(target.center);
     var span = Math.hypot(z.x - a.x, z.y - a.y);
     var fit = span ? Math.log2(0.6 * map.transform.width / (span * 512)) : Infinity;
-    var rise = Math.max(0, (from.zoom + target.zoom) / 2 - Math.min(from.zoom, target.zoom, fit));
+    var rise = Math.max(0, Math.min(from.zoom, target.zoom) - fit);
+    // Flying in, the centre arrives early so the last of the move is a
+    // straight descent; flying out, the camera rises before it travels.
+    var zoomingIn = target.zoom > from.zoom;
     var turn = ((target.bearing - from.bearing + 540) % 360) - 180;
-    var start = performance.now(), dur = 5200;
+    var start = performance.now(), dur = Math.min(3000, 2000 + 250 * Math.abs(target.zoom - from.zoom) + 400 * rise);
 
     (function step(now) {
       var t = Math.min(1, (now - start) / dur), e = easeInOut(t);
-      var c = new mapboxgl.MercatorCoordinate(a.x + (z.x - a.x) * e, a.y + (z.y - a.y) * e);
+      var m = zoomingIn ? 1 - Math.pow(1 - e, 2) : e * e;
+      var c = new mapboxgl.MercatorCoordinate(a.x + (z.x - a.x) * m, a.y + (z.y - a.y) * m);
       self.cam = {
         center: c.toLngLat(),
         zoom: from.zoom + (target.zoom - from.zoom) * e - rise * Math.sin(Math.PI * e),
