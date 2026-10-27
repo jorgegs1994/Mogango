@@ -27,8 +27,8 @@ window.MOGANGO = {
   // in italics; wrap it in _underscores_ to give it the orange accent;
   // \n starts a new line.
   copy: {
-    heroTitle: "De\u00a0Mogán\na\u00a0tu _negocio._",
-    heroLine: "Mogán · desde 1978",
+    heroTitle: "Mangos\nde\u00a0_Mogán._",
+    heroLine: "Finca familiar · desde 1978",
 
     introLabel: "La finca",
     introTitle: "Empezó con tomates y berenjenas. Hoy son tres fincas y una fruta de la que nunca dejamos de *aprender*.",
