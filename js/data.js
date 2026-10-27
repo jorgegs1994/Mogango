@@ -62,7 +62,7 @@ window.MOGANGO = {
   // The map comes from Mapbox (https://www.mapbox.com). Paste your public
   // access token (it starts with "pk.") from your Mapbox account page.
   mapbox: {
-    token: "",
+    token: "pk.eyJ1IjoiZ2V0bG9zdHdvcmxkIiwiYSI6ImNrODIzNDJiMjAybGUzbnF0endrNmY2amUifQ.oiv1XT26K46BmoVaWwm5vQ",
     style: "mapbox://styles/mapbox/standard-satellite",
     // Light for the satellite style: "dawn", "day", "dusk" or "night".
     lightPreset: "dusk",
