@@ -239,7 +239,9 @@ em { font-style: italic; }
 .has-motion .step.is-active .cap-foot { transition-delay: .5s; }
 
 /* Map markers: small, precise, quiet. */
-.marker { all: unset; cursor: pointer; display: block; position: relative; width: 22px; height: 22px; }
+/* Mapbox positions each marker itself (absolute, moved by transform), so
+   these rules must never set position, top or left on the marker. */
+.marker { cursor: pointer; display: block; width: 22px; height: 22px; padding: 0; border: 0; background: none; color: inherit; font: inherit; }
 .marker .dot {
   position: absolute; left: 50%; top: 50%; width: 9px; height: 9px; margin: -4.5px 0 0 -4.5px;
   border: 1px solid var(--mango); border-radius: 50%;
