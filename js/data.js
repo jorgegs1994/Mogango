@@ -50,6 +50,15 @@ window.MOGANGO = {
     varietiesTitle: "Tres mangos, tres *caracteres*.",
     varietiesText: "Cada variedad madura a su ritmo y se da mejor en su propio valle. Estas son las nuestras.",
 
+    tradeLabel: "Para empresas",
+    tradeTitle: "Mango de Gran Canaria para tu *negocio*.",
+    tradeText: "Vendemos directamente a fruterías, mayoristas, hoteles, restaurantes y distribuidores. Sin intermediarios: la fruta sale de nuestras fincas y llega a tu negocio a través de nuestro puesto en el mercado.",
+    calendarLabel: "Cuándo hay de cada uno",
+    calendarText: "Para planificar tus pedidos. Las semanas exactas dependen de cada año; te las confirmamos al pedir presupuesto.",
+    formatsLabel: "Formatos y calibres",
+    formatsNote: "Cada caja lleva una sola variedad, fruta seleccionada a mano y una etiqueta con la finca y el día de recogida. Puedes pedirla lista para consumir o con unos días de margen.",
+    orderLabel: "Cómo pedir",
+
     closingLine: "Meses de sol.\n*Un bocado.*"
   },
 
@@ -140,17 +149,39 @@ window.MOGANGO = {
   ],
 
   // The three mangoes we grow. Seasons are approximate.
+  // `availability` has one number per month, January first, for the buyers'
+  // calendar: 0 none, 1 a little (start or end of the season), 2 plenty.
+  // Made-up for now, to match the seasons below.
   varieties: [
-    { name: "Tommy Atkins", season: "Julio a agosto",
+    { name: "Tommy Atkins", availability: [0, 0, 0, 0, 1, 1, 2, 2, 1, 0, 0, 0],
+      season: "Julio a agosto",
       taste: "Firme, aguanta bien el viaje y tiene ese rojo intenso que sale en todas las fotos.",
       photo: { src: "images/tommy-atkins.jpg", alt: "Un racimo de mangos Tommy Atkins de un rojo intenso colgando del árbol", note: "Mangos Tommy Atkins en el árbol" } },
-    { name: "Kent",         season: "Agosto a octubre",
+    { name: "Kent",         availability: [0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 1, 0],
+      season: "Agosto a octubre",
       taste: "Dulce e intenso, casi sin hebra. Para comerlo a cucharadas.",
       photo: { src: "images/kent.jpg",         alt: "Un mango Kent grande, verde con un toque rojizo, colgando entre las hojas", note: "Un mango Kent en el árbol" } },
-    { name: "Osteen",       season: "Septiembre a noviembre",
+    { name: "Osteen",       availability: [0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 1],
+      season: "Septiembre a noviembre",
       taste: "Alargado y de piel morada, con la pulpa firme, jugosa y casi sin hebra. El tardío.",
       photo: { src: "images/osteen.jpg",       alt: "Mangos Osteen morados colgando del árbol entre hojas verde oscuro", note: "Mangos Osteen en el árbol" } }
   ],
+
+  // The section for business buyers. Formats, calibres, the market stall and the
+  // order steps are made-up placeholders until the family confirms them.
+  trade: {
+    formats: [
+      { name: "Caja de 4 kg", detail: "Calibres 8 a 14", use: "Para fruterías y hostelería" },
+      { name: "Caja de 6 kg", detail: "Calibres 10 a 18", use: "La más pedida en el mercado" },
+      { name: "Palé completo", detail: "120 cajas de 6 kg", use: "Para mayoristas y distribuidores" }
+    ],
+    steps: [
+      { title: "Cuéntanos qué necesitas", text: "Variedad, formato, cantidad y las semanas en que lo quieres." },
+      { title: "Te respondemos en 24 horas", text: "Con precio y disponibilidad para esas semanas." },
+      { title: "Lo recoges en el mercado", text: "En nuestro puesto de Mercalaspalmas, con la fruta recién llegada de las fincas." }
+    ],
+    businessTypes: ["Frutería", "Mayorista", "Hotel", "Restaurante", "Distribuidor", "Otro"]
+  },
 
   contact: {
     email: "hola@mogango.example",
