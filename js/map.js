@@ -1,6 +1,6 @@
 /*
- * The island map, built on Mapbox: satellite imagery with 3D terrain, the
- * groves, the shops, and a truck that drives the real road between them.
+ * The island map, built on Mapbox: dusk satellite imagery with 3D terrain,
+ * the groves, the shops, and a truck that drives the real road between them.
  * Mapbox handles the camera; this file only says where to look.
  */
 (function () {
@@ -36,6 +36,8 @@
     return pts;
   }
 
+  var ACCENT = "#E8891C";
+
   function easeInOut(t) {
     return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
   }
@@ -48,10 +50,6 @@
     node.innerHTML = html;
     return node;
   }
-
-  var HOUSE = "<svg viewBox='-20 -24 40 34' aria-hidden='true'><path d='M-17 -8 L0 -21 L17 -8 V8 H-17 Z' fill='#fff3dc' stroke='#8a5a2b' stroke-width='2'/><path d='M-20 -8 L0 -23 L20 -8' fill='none' stroke='#c0532a' stroke-width='4' stroke-linejoin='round'/><rect x='-5' y='-2' width='10' height='10' fill='#8a5a2b'/></svg>";
-  var SHOP = "<svg viewBox='-16 -16 32 24' aria-hidden='true'><rect x='-12' y='-12' width='24' height='18' rx='2' fill='#fffaf0' stroke='#6b4f35' stroke-width='1.5'/><path d='M-14 -14 h28 v5 a3.5 3.5 0 0 1 -7 0 a3.5 3.5 0 0 1 -7 0 a3.5 3.5 0 0 1 -7 0 a3.5 3.5 0 0 1 -7 0 Z' fill='#e2533b'/><rect x='-4' y='-3' width='8' height='9' fill='#6b4f35'/></svg>";
-  var TRUCK = "<svg viewBox='-24 -14 48 28' aria-hidden='true'><rect x='-22' y='-11' width='30' height='18' rx='2.5' fill='#f39c12' stroke='#a75a06' stroke-width='1.5'/><use href='#mango-icon' x='-15' y='-10' width='14' height='14'/><path d='M8 -6 h8 l6 6 v7 h-14 Z' fill='#2f7d32' stroke='#1d561b' stroke-width='1.5' stroke-linejoin='round'/><path d='M10 -4 h5 l4 4 h-9 Z' fill='#cfeaf5'/><circle cx='-13' cy='8' r='4' fill='#2b2118'/><circle cx='13' cy='8' r='4' fill='#2b2118'/></svg>";
 
   function FarmMap(container, data) {
     this.data = data;
@@ -69,8 +67,8 @@
     var cfg = data.mapbox || {};
     if (!window.mapboxgl || !cfg.token) {
       container.classList.add("map-missing");
-      container.innerHTML = "<div class='map-missing-note'><b>The map needs a Mapbox key.</b>" +
-        "<span>Add your public Mapbox token to <code>mapbox.token</code> in <code>js/data.js</code>.</span></div>";
+      container.innerHTML = "<div class='map-missing-note'><p class='label'>Map</p>" +
+        "<p>The island map needs a Mapbox key. Add your public token to <code>mapbox.token</code> in <code>js/data.js</code>.</p></div>";
       return;
     }
 
@@ -78,10 +76,20 @@
     this.map = new mapboxgl.Map({
       container: container,
       style: cfg.style,
+      // Settings for Mapbox's Standard styles: a dusk light and no labels,
+      // so the island reads as one quiet landscape.
+      config: { basemap: {
+        lightPreset: cfg.lightPreset || "dusk",
+        showPlaceLabels: false,
+        showRoadLabels: false,
+        showPointOfInterestLabels: false,
+        showTransitLabels: false
+      } },
       bounds: cfg.island,
       fitBoundsOptions: { padding: this.padding() },
       interactive: false,
-      cooperativeGestures: false
+      attributionControl: true,
+      logoPosition: "bottom-right"
     });
     var self = this;
     this.map.on("load", function () { self.onLoad(); });
@@ -94,11 +102,11 @@
   FarmMap.prototype.on = function (name, fn) { this.handlers[name] = fn; };
   FarmMap.prototype.emit = function (name, payload) { if (this.handlers[name]) this.handlers[name](payload); };
 
-  // Keep what the camera looks at clear of the story cards.
+  // Keep what the camera looks at clear of the captions in the lower left.
   FarmMap.prototype.padding = function () {
     var W = window.innerWidth, H = window.innerHeight;
-    if (W >= 900) return { top: 90, bottom: 40, left: Math.min(460, W * 0.4) + 24, right: 48 };
-    return { top: 70, bottom: Math.round(H * 0.44), left: 16, right: 16 };
+    if (W >= 900) return { top: 100, bottom: Math.round(H * 0.3), left: Math.round(W * 0.34), right: 120 };
+    return { top: 90, bottom: Math.round(H * 0.5), left: 24, right: 24 };
   };
 
   FarmMap.prototype.onLoad = function () {
@@ -119,33 +127,40 @@
         })
       }
     });
-    map.addLayer({ id: "grove-fill", type: "fill", source: "groves", paint: {
-      "fill-color": "#ffc429",
-      "fill-opacity": ["case", ["boolean", ["feature-state", "active"], false], 0.5, 0.25]
+    map.addLayer({ id: "grove-fill", type: "fill", source: "groves", slot: "top", paint: {
+      "fill-color": ACCENT,
+      "fill-emissive-strength": 1,
+      "fill-opacity": ["case", ["boolean", ["feature-state", "active"], false], 0.14, 0],
+      "fill-opacity-transition": { duration: 1200 }
     } });
-    map.addLayer({ id: "grove-line", type: "line", source: "groves", paint: { "line-color": "#ffc429", "line-width": 2.5 } });
+    map.addLayer({ id: "grove-line", type: "line", source: "groves", slot: "top", paint: {
+      "line-color": ACCENT,
+      "line-emissive-strength": 1,
+      "line-width": ["case", ["boolean", ["feature-state", "active"], false], 1.5, 1],
+      "line-opacity": ["case", ["boolean", ["feature-state", "active"], false], 1, 0.55]
+    } });
 
     d.plantations.forEach(function (p) {
-      var el = marker("grove-marker", "<span class='pin'><svg viewBox='0 0 40 40' aria-hidden='true'><use href='#mango-icon'/></svg></span><span class='marker-label'>" + p.name + "</span>", p.name + ", " + p.region);
+      var el = marker("grove-marker", "<span class='dot'></span><span class='marker-label'>" + p.name + "</span>", p.name + ", " + p.region);
       el.addEventListener("click", function () { self.emit("select", { type: "plantation", id: p.id }); });
-      self.groveMarkers[p.id] = new mapboxgl.Marker({ element: el, anchor: "bottom" }).setLngLat([p.lon, p.lat]).addTo(map);
+      self.groveMarkers[p.id] = new mapboxgl.Marker({ element: el, anchor: "center" }).setLngLat([p.lon, p.lat]).addTo(map);
     });
 
     var ph = d.packingHouse;
-    this.packing = new mapboxgl.Marker({ element: marker("packing-marker", HOUSE + "<span class='marker-label'>" + ph.name + "</span>", ph.name) })
+    this.packing = new mapboxgl.Marker({ element: marker("packing-marker", "<span class='dot'></span><span class='marker-label'>" + ph.name + "</span>", ph.name) })
       .setLngLat([ph.lon, ph.lat]).addTo(map);
 
     d.shops.forEach(function (s, i) {
-      var el = marker("shop-marker", SHOP + "<span class='crate' aria-hidden='true'></span><span class='marker-label'>" + s.name + "</span>", s.name + " in " + s.town);
+      var el = marker("shop-marker", "<span class='dot'></span><span class='marker-label'>" + s.name + "</span>", s.name + " in " + s.town);
       el.addEventListener("click", function () { self.emit("select", { type: "shop", index: i }); });
       self.shopMarkers.push(new mapboxgl.Marker({ element: el }).setLngLat([s.lon, s.lat]).addTo(map));
     });
 
     var truck = document.createElement("div");
     truck.className = "truck-marker";
-    truck.innerHTML = "<span class='truck-body'>" + TRUCK + "</span>";
+    truck.innerHTML = "<span class='truck-dot'></span>";
     this.truckEl = truck;
-    this.truck = new mapboxgl.Marker({ element: truck, rotationAlignment: "map" }).setLngLat([ph.lon, ph.lat]).addTo(map);
+    this.truck = new mapboxgl.Marker({ element: truck }).setLngLat([ph.lon, ph.lat]).addTo(map);
 
     this.loadRoute();
     this.ready = true;
@@ -189,9 +204,9 @@
 
     map.addSource("route", { type: "geojson", data: { type: "Feature", geometry: { type: "LineString", coordinates: line } } });
     map.addSource("driven", { type: "geojson", data: { type: "Feature", geometry: { type: "LineString", coordinates: [line[0], line[0]] } } });
-    map.addLayer({ id: "route-casing", type: "line", source: "route", layout: { "line-cap": "round", "line-join": "round" }, paint: { "line-color": "#0c141c", "line-opacity": 0.5, "line-width": 7 } });
-    map.addLayer({ id: "route", type: "line", source: "route", layout: { "line-cap": "round", "line-join": "round" }, paint: { "line-color": "#ffffff", "line-width": 3, "line-dasharray": [2, 1.5] } });
-    map.addLayer({ id: "driven", type: "line", source: "driven", layout: { "line-cap": "round", "line-join": "round" }, paint: { "line-color": "#f39c12", "line-width": 5 } });
+    var round = { "line-cap": "round", "line-join": "round" };
+    map.addLayer({ id: "route", type: "line", source: "route", slot: "top", layout: round, paint: { "line-color": ACCENT, "line-emissive-strength": 1, "line-opacity": 0.35, "line-width": 1 } });
+    map.addLayer({ id: "driven", type: "line", source: "driven", slot: "top", layout: round, paint: { "line-color": ACCENT, "line-emissive-strength": 1, "line-width": 2 } });
 
     if (this.scene) this.setScene(this.scene);
   };
@@ -213,10 +228,7 @@
     if (!this.route) return;
     this.truckAt = dist;
     var p = this.pointAt(dist);
-    if (this.drive && this.drive.to < this.drive.from) p.heading = (p.heading + 180) % 360;
-    this.truck.setLngLat(p.at).setRotation(p.heading - 90);
-    // Keep the truck the right way up when it heads west.
-    this.truckEl.classList.toggle("is-west", p.heading > 180);
+    this.truck.setLngLat(p.at);
     this.map.getSource("driven").setData({ type: "Feature", geometry: { type: "LineString", coordinates: this.route.slice(0, p.index + 1).concat([p.at]) } });
     var self = this;
     this.shopMarkers.forEach(function (m, i) {
@@ -242,8 +254,8 @@
   FarmMap.prototype.driveTo = function (dist) {
     var from = this.truckAt, gap = Math.abs(dist - from);
     if (reduceMotion || gap < 1) { this.drive = null; this.placeTruck(dist); return; }
-    // About 25 km of road per second of animation, between 1.2 and 5 seconds.
-    this.drive = { from: from, to: dist, start: performance.now(), duration: Math.max(1200, Math.min(5000, gap / 25)) };
+    // An unhurried drive: about 10 km of road per second, between 2.5 and 8 seconds.
+    this.drive = { from: from, to: dist, start: performance.now(), duration: Math.max(2500, Math.min(8000, gap / 10)) };
     this.truckEl.classList.add("is-driving");
   };
 
@@ -281,10 +293,11 @@
       }
     }
 
-    var move = { padding: this.padding(), duration: reduceMotion ? 0 : 2400, essential: true };
+    // Slow, gentle camera moves, so the flights feel filmed rather than animated.
+    var move = { padding: this.padding(), duration: reduceMotion ? 0 : 4200, easing: easeInOut, curve: 1.2, essential: true };
     if (scene.follow) {
       var start = [this.data.packingHouse.lon, this.data.packingHouse.lat];
-      map.flyTo(Object.assign(move, { center: this.truckPos || start, zoom: 12.5, pitch: 50, bearing: 0 }));
+      map.flyTo(Object.assign(move, { center: this.truckPos || start, zoom: 12.2, pitch: 62, bearing: -20 }));
     } else if (scene.view === "island") {
       map.fitBounds(this.data.mapbox.island, Object.assign(move, { pitch: 0, bearing: 0 }));
     } else if (scene.view) {

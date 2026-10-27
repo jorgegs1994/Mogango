@@ -1,166 +1,154 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mogango | Family Mango Farm</title>
-  <meta name="description" content="Mogango is a family mango farm. Follow our mangoes from five plantations across the island to the shops where you buy them.">
+  <title>Mogango | Family mango farm, Gran Canaria</title>
+  <meta name="description" content="Mogango is a family mango farm on Gran Canaria. Five groves, hand-picked fruit, and a short drive from our trees to your table.">
+  <meta name="theme-color" content="#12160F">
+  <script>
+    // Hide the hero headline until js/motion.js is ready to reveal it.
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("motion-pending");
+      setTimeout(function () { document.documentElement.classList.remove("motion-pending"); }, 3000);
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
+
   <header class="topbar">
-    <a class="brand" href="#top" aria-label="Mogango home">
-      <svg viewBox="0 0 40 40" aria-hidden="true"><use href="#mango-icon"/></svg>
-      <span data-bind="farmName">Mogango</span>
-    </a>
+    <a class="wordmark" href="#top" aria-label="Mogango, back to top"><span data-bind="farmName">Mogango</span><i aria-hidden="true"></i></a>
     <nav class="topnav" aria-label="Sections">
-      <a href="#story">Our groves</a>
-      <a href="#season">Season</a>
-      <a href="#varieties">Varieties</a>
-      <a href="#taste">Taste</a>
+      <a href="#story">Groves</a>
+      <a href="#season" class="hide-sm">Season</a>
+      <a href="#varieties" class="hide-sm">Varieties</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <main id="top">
-    <section class="hero">
+  <main id="main">
+    <section id="top" class="hero" data-theme="dark">
+      <div class="hero-media" data-photo="hero" data-eager></div>
       <div class="hero-text">
-        <p class="eyebrow">Family mango farm</p>
-        <h1>From our trees<br>to your <em>table</em>.</h1>
-        <p class="lede" data-bind="tagline"></p>
-        <a class="btn" href="#story">Take the tour</a>
+        <h1 class="display reveal" data-copy="heroTitle"></h1>
+        <p class="label hero-line" data-copy="heroLine"></p>
       </div>
-      <div class="hero-art" aria-hidden="true">
-        <svg viewBox="0 0 400 400">
-          <circle class="sun" cx="200" cy="200" r="170"/>
-          <g class="hero-leaf"><path d="M205 70 C 260 30 330 40 350 60 C 320 110 260 120 205 90 Z"/><path class="vein" d="M210 82 C 260 70 310 62 345 61"/></g>
-          <g class="hero-mango"><use href="#mango-shape" x="70" y="80" width="260" height="280"/></g>
-        </svg>
-      </div>
-      <a class="scroll-cue" href="#story" aria-label="Scroll down to begin"><span></span></a>
+      <a class="scroll-cue label" href="#intro"><span>Scroll</span><i aria-hidden="true"></i></a>
     </section>
 
-    <section id="story" class="story" aria-label="Tour of our plantations and deliveries">
+    <section id="intro" class="intro" data-theme="light" aria-labelledby="intro-title">
+      <p class="label section-label" data-copy="introLabel"></p>
+      <h2 id="intro-title" class="statement reveal" data-copy="introTitle"></h2>
+      <div class="intro-body">
+        <div class="intro-photo" data-photo="family"></div>
+        <div class="intro-text">
+          <p class="since"><span class="label">Est.</span><span class="since-year" data-bind="since"></span></p>
+          <p class="body-text" data-copy="introText"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="story" class="story" data-theme="dark" aria-labelledby="story-title">
+      <h2 id="story-title" class="visually-hidden">A tour of our groves and the delivery route</h2>
       <div class="map-stage">
-        <div id="map" role="region" aria-label="Map of Gran Canaria showing our plantations, the packing house, the delivery road and the shops"></div>
-        <div class="map-hud" aria-hidden="true">
-          <span class="hud-label" id="hud-label">The island</span>
-          <span class="hud-progress"><span id="hud-bar"></span></span>
+        <div id="map" role="region" aria-label="Map of Gran Canaria showing our groves, the packing house, the delivery road and the shops"></div>
+        <div class="map-shade" aria-hidden="true"></div>
+        <div class="map-hud">
+          <p class="label hud-count" aria-hidden="true"><span id="hud-index">01</span> / <span id="hud-total"></span></p>
+          <nav class="rail" id="rail" aria-label="Tour stops"></nav>
         </div>
       </div>
       <div class="steps" id="steps"></div>
-      <nav class="rail" id="rail" aria-label="Tour steps"></nav>
     </section>
 
-    <section id="numbers" class="band numbers">
-      <div class="wrap">
-        <p class="eyebrow">In numbers</p>
-        <h2>One family, five groves</h2>
-        <div class="stats" id="stats"></div>
+    <section id="harvest" class="harvest" data-theme="light" aria-labelledby="harvest-title">
+      <div class="harvest-head">
+        <p class="label section-label" data-copy="harvestLabel"></p>
+        <h2 id="harvest-title" class="display-md reveal" data-copy="harvestTitle"></h2>
+      </div>
+      <div class="harvest-grid">
+        <figure class="harvest-a"><div data-photo="picking"></div><figcaption class="label">01 · Picking</figcaption></figure>
+        <figure class="harvest-b"><div data-photo="crates"></div><figcaption class="label">02 · The crates</figcaption></figure>
+        <p class="harvest-text body-text" data-copy="harvestText"></p>
+        <figure class="harvest-c"><div data-photo="packing"></div><figcaption class="label">03 · The packing house, Arguineguín</figcaption></figure>
       </div>
     </section>
 
-    <section id="season" class="band season">
-      <div class="wrap">
-        <p class="eyebrow">The season</p>
-        <h2>When the mangoes come</h2>
-        <p class="section-lede">Tonnes picked each month across all five groves. Hover or tap a bar for the details.</p>
-        <figure class="chart-card">
-          <div class="chart" id="chart"></div>
-          <figcaption class="chart-note" id="chart-note"></figcaption>
-          <details class="chart-table">
-            <summary>Show as table</summary>
-            <table id="chart-table"></table>
+    <section id="numbers" class="numbers" data-theme="dark" aria-labelledby="numbers-title">
+      <h2 id="numbers-title" class="label section-label" data-copy="numbersLabel"></h2>
+      <dl class="stats" id="stats"></dl>
+    </section>
+
+    <section id="season" class="season" data-theme="light" aria-labelledby="season-title">
+      <div class="season-head">
+        <p class="label section-label" data-copy="seasonLabel"></p>
+        <h2 id="season-title" class="display-md reveal" data-copy="seasonTitle"></h2>
+        <p class="body-text" data-copy="seasonText"></p>
+      </div>
+      <figure class="strip-figure">
+        <div class="strip" id="strip" role="img"></div>
+        <figcaption class="strip-foot">
+          <span class="label" id="strip-note"></span>
+          <details class="strip-table">
+            <summary class="label">Show as table</summary>
+            <table id="strip-table"></table>
           </details>
-        </figure>
-      </div>
+        </figcaption>
+      </figure>
     </section>
 
-    <section id="varieties" class="band varieties">
-      <div class="wrap">
-        <p class="eyebrow">What we grow</p>
-        <h2>Five varieties, five personalities</h2>
-        <p class="section-lede">Tap a card to see where each one grows.</p>
-        <div class="variety-grid" id="variety-grid"></div>
-      </div>
-    </section>
-
-    <section id="taste" class="band taste">
-      <div class="wrap taste-wrap">
-        <div>
-          <p class="eyebrow">The best part</p>
-          <h2>And then, someone takes a bite.</h2>
-          <p class="section-lede">Months of sun, a hand-picked harvest and a short drive later, this is what it is all for. Go on, take a bite.</p>
-          <p class="bite-count" id="bite-count" aria-live="polite"></p>
-          <button class="btn btn-ghost" id="new-mango" hidden>Grab another mango</button>
+    <section id="varieties" class="varieties" data-theme="dark" aria-labelledby="varieties-title">
+      <div class="v-track" id="v-track">
+        <div class="v-panel v-intro">
+          <p class="label section-label" data-copy="varietiesLabel"></p>
+          <h2 id="varieties-title" class="display-md reveal" data-copy="varietiesTitle"></h2>
+          <p class="body-text" data-copy="varietiesText"></p>
+          <p class="label v-hint" aria-hidden="true">Keep scrolling <i></i></p>
         </div>
-        <button class="bite-mango" id="bite-mango" aria-label="Take a bite of the mango">
-          <svg viewBox="0 0 300 320" aria-hidden="true">
-            <defs>
-              <mask id="bite-mask"><rect width="300" height="320" fill="#fff"/><g id="bites"></g></mask>
-            </defs>
-            <g mask="url(#bite-mask)">
-              <use href="#mango-shape" x="20" y="20" width="260" height="280"/>
-            </g>
-            <g id="bite-flesh"></g>
-          </svg>
-        </button>
+      </div>
+    </section>
+
+    <section id="closing" class="closing" data-theme="dark" aria-labelledby="closing-line">
+      <div class="closing-stage">
+        <div class="closing-media" data-photo="cut"></div>
+        <p id="closing-line" class="display closing-line reveal" data-copy="closingLine"></p>
       </div>
     </section>
   </main>
 
-  <footer id="contact" class="footer">
-    <div class="wrap footer-grid">
+  <footer id="contact" class="footer" data-theme="dark">
+    <div class="footer-cols">
       <div>
-        <a class="brand brand-lg" href="#top">
-          <svg viewBox="0 0 40 40" aria-hidden="true"><use href="#mango-icon"/></svg>
-          <span data-bind="farmName">Mogango</span>
-        </a>
-        <p data-bind="tagline"></p>
+        <h2 class="label">The farm</h2>
+        <p class="footer-tag" data-bind="tagline"></p>
       </div>
       <div>
-        <h3>Visit or write to us</h3>
+        <h2 class="label">Write or visit</h2>
         <p id="contact-lines"></p>
       </div>
-      <div>
-        <h3>Find our mangoes</h3>
+      <div class="footer-shops">
+        <h2 class="label">Find our mangoes</h2>
         <ul id="shop-list" class="shop-list"></ul>
       </div>
     </div>
-    <p class="wrap fineprint"><span>&copy; <span id="year"></span> <span data-bind="farmName">Mogango</span>. Grown with care.</span></p>
+    <p class="giant" aria-hidden="true"><span data-bind="farmName">Mogango</span></p>
+    <p class="fineprint label"><span>&copy; <span id="year"></span> <span data-bind="farmName">Mogango</span></span><span>Grown and picked by hand on Gran Canaria</span></p>
   </footer>
 
-  <!-- Shared drawings -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <defs>
-      <linearGradient id="mango-grad" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#ffd23f"/>
-        <stop offset=".55" stop-color="#f7a21b"/>
-        <stop offset="1" stop-color="#e5532d"/>
-      </linearGradient>
-      <radialGradient id="mango-shine" cx=".35" cy=".3" r=".4">
-        <stop offset="0" stop-color="#fff" stop-opacity=".55"/>
-        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
-      </radialGradient>
-      <symbol id="mango-shape" viewBox="0 0 260 280">
-        <path d="M150 30 C 215 40 250 110 240 175 C 230 245 170 275 110 270 C 50 265 15 215 25 160 C 35 110 70 90 95 60 C 110 40 125 26 150 30 Z" fill="url(#mango-grad)"/>
-        <path d="M150 30 C 215 40 250 110 240 175 C 230 245 170 275 110 270 C 50 265 15 215 25 160 C 35 110 70 90 95 60 C 110 40 125 26 150 30 Z" fill="url(#mango-shine)"/>
-        <path d="M148 32 C 150 18 156 8 166 2" stroke="#6b4423" stroke-width="7" fill="none" stroke-linecap="round"/>
-      </symbol>
-      <symbol id="mango-icon" viewBox="0 0 40 40">
-        <path d="M23 7 C 32 9 36 19 34 27 C 32 35 24 38 17 37 C 9 36 5 30 7 23 C 9 17 13 15 16 11 C 18 8 20 6 23 7 Z" fill="url(#mango-grad)"/>
-        <path d="M23 8 C 25 3 30 2 34 3 C 32 7 28 9 23 8 Z" fill="#3f8f3a"/>
-      </symbol>
-    </defs>
-  </svg>
-
   <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script>
   <script src="js/data.js"></script>
   <script src="js/map.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/motion.js"></script>
 </body>
 </html>
