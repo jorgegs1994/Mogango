@@ -28,7 +28,7 @@ window.MOGANGO = {
   // \n starts a new line.
   copy: {
     heroTitle: "Del árbol a tu _mesa._",
-    heroLine: "Fincas de mango familiares · Mogán · desde 1978",
+    heroLine: "Mogán · desde 1978",
 
     introLabel: "La finca",
     introTitle: "Empezó con tomates y berenjenas. Hoy son tres fincas y una fruta de la que nunca dejamos de *aprender*.",
