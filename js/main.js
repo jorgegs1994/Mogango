@@ -49,6 +49,10 @@
   });
   $("#year").textContent = new Date().getFullYear();
 
+  // An absolute address, since css/styles.css would read a relative one from css/.
+  document.documentElement.style.setProperty("--logo", "url('" + new URL(D.logo.src, document.baseURI).href + "')");
+  document.documentElement.classList.toggle("logo-colour", !!D.logo.colour);
+
   // ---- Photos --------------------------------------------------------------
   // A photo shows a quiet dark block with its intended shot until the file
   // exists in /images.
