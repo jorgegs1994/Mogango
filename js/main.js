@@ -110,7 +110,7 @@
       scene: { mode: "plantation", plantation: p.id, view: { center: [p.lon, p.lat], zoom: 13.6, pitch: p.camera ? p.camera.pitch : 55, bearing: p.camera ? p.camera.bearing : 0 } },
       html: caption("Finca " + pad(i + 1) + " / " + pad(n) + " · " + esc(p.region), esc(p.name),
         fmt.format(p.hectares) + " ha <i>·</i> " + fmt.format(p.trees) + " árboles <i>·</i> desde " + p.since,
-        esc(p.blurb), "Cultiva " + p.varieties.map(esc).join(", "))
+        esc(p.blurb))
     });
   });
 
@@ -226,7 +226,6 @@
 
   var track = $("#v-track");
   D.varieties.forEach(function (v, i) {
-    var groves = D.plantations.filter(function (p) { return p.varieties.indexOf(v.name) >= 0; });
     var panel = h("article", "v-panel v-variety");
     panel.setAttribute("aria-labelledby", "variety-" + i);
     panel.innerHTML =
@@ -234,19 +233,9 @@
       "<div class='v-text'>" +
       "<p class='label'>" + pad(i + 1) + " / " + pad(D.varieties.length) + " <i>·</i> " + esc(v.season) + "</p>" +
       "<h3 class='v-name reveal' id='variety-" + i + "'>" + esc(v.name) + "</h3>" +
-      "<p class='v-taste'>" + esc(v.taste) + "</p>" +
-      "<p class='label v-grows'>Se cultiva en " + groves.map(function (p) {
-        return "<a href='#' data-grove='" + p.id + "'>" + esc(p.name) + "</a>";
-      }).join(", ") + "</p></div>";
+      "<p class='v-taste'>" + esc(v.taste) + "</p></div>";
     photo($(".v-media", panel), v.photo);
     track.appendChild(panel);
-  });
-  track.addEventListener("click", function (e) {
-    var link = e.target.closest("[data-grove]");
-    if (!link) return;
-    e.preventDefault();
-    var idx = steps.findIndex(function (s) { return s.plantation === link.dataset.grove; });
-    if (idx >= 0) goToStep(idx);
   });
 
   // ---- Light and dark ------------------------------------------------------

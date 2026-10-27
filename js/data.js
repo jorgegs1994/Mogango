@@ -28,7 +28,7 @@ window.MOGANGO = {
   // \n starts a new line.
   copy: {
     heroTitle: "Del árbol a tu _mesa._",
-    heroLine: "Fincas de mango familiares · Mogán · desde 1978",
+    heroLine: "Mogán · desde 1978",
 
     introLabel: "La finca",
     introTitle: "Empezó con tomates y berenjenas. Hoy son tres fincas y una fruta de la que nunca dejamos de *aprender*.",
@@ -49,7 +49,7 @@ window.MOGANGO = {
 
     varietiesLabel: "Lo que cultivamos",
     varietiesTitle: "Tres mangos, tres *caracteres*.",
-    varietiesText: "Cada variedad madura a su ritmo y se da mejor en su propio valle. Estas son las nuestras.",
+    varietiesText: "Las tres crecen en nuestras tres fincas, y cada una madura a su ritmo. Estas son las nuestras.",
 
     tradeLabel: "Para empresas",
     tradeTitle: "Mango de Mogán para tu *negocio*.",
@@ -87,7 +87,8 @@ window.MOGANGO = {
   },
 
   // The family's three fincas, at their exact locations. Sizes, tree
-  // counts, years, varieties and stories are still placeholders.
+  // counts, years and stories are still placeholders. All three varieties
+  // grow at every finca.
   // `camera` sets the map's angle for each finca: `bearing` is the compass
   // direction the camera looks (0 = north) and `pitch` how far it tilts from
   // straight down. Look along a ravine, not across it, or the ridges hide
@@ -100,8 +101,7 @@ window.MOGANGO = {
       lat: 27.87506, lon: -15.72661,
       camera: { bearing: 25, pitch: 50 },
       hectares: 38, trees: 4200, since: 1978,
-      varieties: ["Kent", "Osteen"],
-      blurb: "En el Molino de Viento tuvo el abuelo su primer almacén, en los tiempos de las berenjenas. Hoy sus bancales dan Kent y Osteen."
+      blurb: "En el Molino de Viento tuvo el abuelo su primer almacén, en los tiempos de las berenjenas. Hoy sus bancales están llenos de mangos."
     },
     {
       id: "llanos",
@@ -110,7 +110,6 @@ window.MOGANGO = {
       lat: 27.89222, lon: -15.719,
       camera: { bearing: 25, pitch: 50 },
       hectares: 45, trees: 5100, since: 1994,
-      varieties: ["Tommy Atkins", "Osteen"],
       blurb: "Más arriba en el barranco, en el llano que da nombre a la finca. El sol de la tarde les da a estos mangos su color rojo intenso."
     },
     {
@@ -120,8 +119,7 @@ window.MOGANGO = {
       lat: 27.89072, lon: -15.78169,
       camera: { bearing: 6, pitch: 64 },
       hectares: 29, trees: 3300, since: 2003,
-      varieties: ["Kent", "Tommy Atkins"],
-      blurb: "Un barranco tranquilo que baja hasta la costa oeste. Bancales cálidos y resguardados donde el Kent madura despacio y dulce."
+      blurb: "Un barranco tranquilo que baja hasta la costa oeste. Bancales cálidos y resguardados donde el mango madura despacio y dulce."
     }
   ],
 
@@ -188,6 +186,6 @@ window.MOGANGO = {
   contact: {
     email: "hola@mogango.example",
     phone: "+34 000 000 000",
-    address: "Almacén de empaquetado, Arguineguín, Gran Canaria"
+    address: "Almacén de empaquetado, Mogán, Gran Canaria"
   }
 };
