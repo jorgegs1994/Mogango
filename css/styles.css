@@ -376,9 +376,6 @@ em { font-style: italic; }
 .v-text .label { color: color-mix(in srgb, var(--paper) 70%, transparent); }
 .v-name { font-size: clamp(4.6rem, 15vw, 18rem); line-height: .84; margin: 16px 0 26px -.04em; }
 .v-taste { font-size: 17px; line-height: 1.5; max-width: 36ch; color: color-mix(in srgb, var(--paper) 86%, transparent); }
-.v-grows { margin-top: 22px; }
-.v-grows a { color: var(--paper); text-decoration: underline; text-decoration-color: var(--mango); text-underline-offset: 5px; text-decoration-thickness: 1px; }
-.v-grows a:hover { color: var(--mango); }
 
 @media (min-width: 900px) {
   .has-motion .varieties { height: 100vh; }
