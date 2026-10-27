@@ -47,7 +47,7 @@ window.MOGANGO = {
     seasonText: "The first fruit comes in April from the warmest, lowest terraces. Most of the harvest falls between July and September.",
 
     varietiesLabel: "What we grow",
-    varietiesTitle: "Five mangoes, five *characters*.",
+    varietiesTitle: "Three mangoes, three *characters*.",
     varietiesText: "Each variety ripens at its own pace and suits its own valley. These are the ones we grow.",
 
     closingLine: "Months of sun.\n*One bite.*"
@@ -84,7 +84,7 @@ window.MOGANGO = {
       region: "Mogán valley",
       lat: 27.87506, lon: -15.72661,
       hectares: 38, trees: 4200, since: 1978,
-      varieties: ["Kent", "Haden"],
+      varieties: ["Kent", "Osteen"],
       blurb: "Where it all started. Grandpa planted the first 200 trees on the terraces of the Mogán valley."
     },
     {
@@ -93,7 +93,7 @@ window.MOGANGO = {
       region: "Mogán valley",
       lat: 27.89222, lon: -15.719,
       hectares: 45, trees: 5100, since: 1994,
-      varieties: ["Tommy Atkins", "Keitt"],
+      varieties: ["Tommy Atkins", "Osteen"],
       blurb: "Higher up the valley, on the flat land that gives the finca its name. The afternoon sun gives these mangoes their deep red blush."
     },
     {
@@ -102,8 +102,8 @@ window.MOGANGO = {
       region: "Tasarte valley",
       lat: 27.89072, lon: -15.78169,
       hectares: 29, trees: 3300, since: 2003,
-      varieties: ["Ataulfo", "Kent"],
-      blurb: "A quiet valley running down to the west coast. Small, buttery honey mangoes, the family favourite for breakfast."
+      varieties: ["Kent", "Tommy Atkins"],
+      blurb: "A quiet valley running down to the west coast. Warm, sheltered terraces where the Kent ripens slowly and sweet."
     }
   ],
 
@@ -132,22 +132,17 @@ window.MOGANGO = {
     { month: "Dec", name: "December",  tonnes: 0 }
   ],
 
+  // The three mangoes we grow. Seasons are approximate.
   varieties: [
-    { name: "Kent",         season: "July to September",
-      taste: "Rich and sweet with almost no fibre. Best eaten with a spoon.",
-      photo: { src: "images/kent.jpg",         alt: "A Kent mango, green with a soft red blush",        note: "Kent mango, whole and halved, side light" } },
-    { name: "Haden",        season: "June to August",
-      taste: "The classic. Bright, aromatic and a little tangy.",
-      photo: { src: "images/haden.jpg",        alt: "A Haden mango, yellow with a bright red blush",    note: "Haden mango on its branch" } },
-    { name: "Tommy Atkins", season: "June to September",
+    { name: "Tommy Atkins", season: "July to August",
       taste: "Firm, travels well, with the deep red blush you see in every picture.",
       photo: { src: "images/tommy-atkins.jpg", alt: "A Tommy Atkins mango with deep red skin",          note: "Tommy Atkins mangoes in a crate, close" } },
-    { name: "Keitt",        season: "September to November",
-      taste: "Stays green when ripe. Juicy and sweet, the last of the season.",
-      photo: { src: "images/keitt.jpg",        alt: "A large green Keitt mango",                        note: "Keitt mango, green skin, on dark stone" } },
-    { name: "Ataulfo",      season: "May to July",
-      taste: "Small honey mango. Silky and very sweet, with a thin seed.",
-      photo: { src: "images/ataulfo.jpg",      alt: "Small golden Ataulfo honey mangoes",               note: "A handful of Ataulfo mangoes in a hand" } }
+    { name: "Kent",         season: "August to October",
+      taste: "Rich and sweet with almost no fibre. Best eaten with a spoon.",
+      photo: { src: "images/kent.jpg",         alt: "A Kent mango, green with a soft red blush",        note: "Kent mango, whole and halved, side light" } },
+    { name: "Osteen",       season: "September to November",
+      taste: "Long and purple-skinned, with firm, juicy flesh and almost no fibre. The late one.",
+      photo: { src: "images/osteen.jpg",       alt: "An Osteen mango with purple-red skin",             note: "Osteen mangoes, whole and halved, dark background" } }
   ],
 
   contact: {

@@ -28,11 +28,9 @@ Shoot in natural light, with no filters, and hold the phone **sideways** unless 
 | `crates.jpg` | Harvest, photo 2 | Full crates of mangoes, shot from directly above. **Upright.** |
 | `packing-house.jpg` | Harvest, photo 3 | Inside the packing house, people sorting fruit by hand. Wide. |
 | `mango-cut.jpg` | Closing zoom | A ripe mango cut open and scored into cubes, close up, on a dark background. Keep the fruit in the centre. |
-| `kent.jpg` | Varieties: Kent | A Kent mango, whole and halved, lit from the side. Dark background. |
-| `haden.jpg` | Varieties: Haden | A Haden mango still on its branch. |
 | `tommy-atkins.jpg` | Varieties: Tommy Atkins | Tommy Atkins mangoes in a crate, close, showing the red blush. |
-| `keitt.jpg` | Varieties: Keitt | A green Keitt mango on dark stone or wood. |
-| `ataulfo.jpg` | Varieties: Ataulfo | A handful of small Ataulfo mangoes held in a hand. |
+| `kent.jpg` | Varieties: Kent | A Kent mango, whole and halved, lit from the side. Dark background. |
+| `osteen.jpg` | Varieties: Osteen | Osteen mangoes, whole and halved, showing the purple skin. Dark background. |
 
 The variety photos fill the whole screen with the name over the lower left, so leave some calm space at the bottom of the frame. The descriptions screen readers read out (`alt`) live next to each photo in `js/data.js`.
 
