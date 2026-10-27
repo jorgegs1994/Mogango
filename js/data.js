@@ -53,6 +53,7 @@ window.MOGANGO = {
     tradeLabel: "Para empresas",
     tradeTitle: "Mango de Gran Canaria para tu *negocio*.",
     tradeText: "Vendemos directamente a fruterías, mayoristas, hoteles, restaurantes y distribuidores. Sin intermediarios: la fruta sale de nuestras fincas y llega a tu negocio a través de nuestro puesto en el mercado.",
+    tradeTeaser: "Disponibilidad por variedad, formatos y calibres, y cómo pedir presupuesto.",
     calendarLabel: "Cuándo hay de cada uno",
     calendarText: "Para planificar tus pedidos. Las semanas exactas dependen de cada año; te las confirmamos al pedir presupuesto.",
     formatsLabel: "Formatos y calibres",

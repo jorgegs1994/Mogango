@@ -74,10 +74,12 @@ Any static host works. For GitHub Pages, go to **Settings → Pages**, choose "D
 
 ```
 index.html       page structure
+empresas.html    the page for business buyers (formats, calendar, quote)
 css/styles.css   all styling: colours, type and layout
 js/data.js       the farm's words, numbers, places and photos (edit this)
 js/map.js        Mapbox map and the finca markers
 js/main.js       builds the tour, numbers, season strip, varieties and footer
 js/motion.js     smooth scrolling and scroll effects
+js/trade.js      fills empresas.html and its quote form
 images/          the photos (see the list above)
 ```
