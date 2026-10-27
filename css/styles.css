@@ -81,7 +81,7 @@ em { font-style: italic; }
   color: var(--muted);
 }
 .label i { font-style: normal; padding: 0 .3em; }
-.display, .display-md, .statement, .cap-title, .v-name, .giant, .stat-value, .since-year {
+.display, .display-md, .statement, .cap-title, .v-name, .stat-value, .since-year {
   font-family: var(--display);
   font-weight: 400;
   letter-spacing: -.025em;
@@ -110,11 +110,16 @@ em { font-style: italic; }
 .topbar.is-solid { background: var(--bg); padding-top: 18px; padding-bottom: 18px; pointer-events: auto; }
 .topbar.is-hidden { transform: translateY(-100%); }
 .topbar a { pointer-events: auto; }
-.wordmark {
-  display: inline-flex; align-items: center; gap: 7px;
-  font: 500 13px/1 var(--sans); letter-spacing: .34em; text-transform: uppercase; text-decoration: none;
+.wordmark { display: inline-flex; align-items: center; padding: 4px 0; }
+.wordmark .logo { height: 17px; }
+/* The logo file is used as a stencil, so it takes the colour of the text
+   around it. With `logo.colour` set in js/data.js it shows as drawn. */
+.logo {
+  display: block; aspect-ratio: 2272 / 384;
+  background: currentColor;
+  -webkit-mask: var(--logo) center / contain no-repeat; mask: var(--logo) center / contain no-repeat;
 }
-.wordmark i { width: 5px; height: 5px; border-radius: 50%; background: var(--mango); margin-top: -1px; }
+.logo-colour .logo { background: var(--logo) center / contain no-repeat; -webkit-mask: none; mask: none; }
 .topnav { display: flex; gap: clamp(20px, 3vw, 44px); }
 .topnav a {
   position: relative; text-decoration: none; padding: 6px 0;
@@ -402,10 +407,10 @@ em { font-style: italic; }
 .shop-list li:last-child { border-bottom: 1px solid var(--hair); }
 .shop-list li span:last-child { color: var(--muted); text-align: right; }
 .giant {
-  margin: clamp(90px, 16vh, 180px) 0 0 -.02em;
-  font-size: 23.4vw; font-size: calc(100cqi / 3.53); line-height: .74; letter-spacing: -.035em; text-transform: uppercase; white-space: nowrap;
+  margin: clamp(90px, 16vh, 180px) 0 0;
   color: var(--fg);
 }
+.giant .logo { width: 100%; }
 .fineprint { display: flex; justify-content: space-between; gap: 16px; padding: 26px 0 30px; margin-top: clamp(18px, 3vw, 44px); border-top: 1px solid var(--hair); }
 
 /* ---- Smaller screens ---------------------------------------------------- */

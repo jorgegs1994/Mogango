@@ -14,6 +14,11 @@
  */
 window.MOGANGO = {
   farmName: "Mogango",
+
+  // The logo. With `colour: false` it is drawn in one colour that matches
+  // the page (off-white on dark, ink on light); `true` shows the original
+  // yellow and green.
+  logo: { src: "images/logo.png", colour: false },
   islandName: "Gran Canaria",
   since: 1978,
   tagline: "Sun-ripened mangoes from the valleys of Gran Canaria, grown by one family since 1978.",
