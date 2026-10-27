@@ -4,7 +4,7 @@ The website for our family mango farm on Gran Canaria. It's one long scrolling p
 
 1. **Hero**: a full-screen photo of the groves and the headline.
 2. **The farm**: a short introduction to the family and the farm.
-3. **Island tour**: a dusk satellite map of Gran Canaria, in 3D, stays pinned on screen while you scroll. The camera flies slowly from finca to finca, each finca's name appears large over the map, and the tour ends on all three together.
+3. **Island tour**: a dusk satellite map of Gran Canaria, in 3D, stays pinned on screen while you scroll. The camera flies slowly from finca to finca, each finca's name appears large over the map, and the tour ends on both together.
 4. **Harvest**: picking, a looping video of the washing and sorting line, and the packing house.
 5. **In numbers**: four large totals that count up as they come into view.
 6. **The season**: a twelve-month strip. The deeper the fill, the bigger that month's harvest.
