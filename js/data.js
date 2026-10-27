@@ -13,7 +13,7 @@
  * dark block with the `note` describing the intended shot.
  */
 window.MOGANGO = {
-  farmName: "Mogango",
+  farmName: "MOGANGO",
 
   // The logo. With `colour: false` it is drawn in one colour that matches
   // the page (off-white on dark, ink on light); `true` shows the original
@@ -72,7 +72,7 @@ window.MOGANGO = {
     family:   { src: "images/family.jpg",         alt: "Nuestro abuelo sentado bajo un mango, junto a una rama cargada de fruta", note: "La familia entre los árboles" },
     picking:  { src: "images/picking.jpg",        alt: "Bajando por el camino de la finca con mangos recién cogidos en las manos", note: "La recogida" },
     processing: { video: "images/processing.mp4", src: "images/processing-poster.jpg", alt: "Mangos recién cogidos avanzando por la línea de lavado y selección del almacén", note: "La línea de lavado" },
-    packing:  { src: "images/warehouse-pallets.jpg", alt: "Palés de cajas negras de Mogango apilados en el almacén, listos para salir", note: "El almacén" },
+    packing:  { src: "images/warehouse-pallets.jpg", alt: "Palés de cajas negras de MOGANGO apilados en el almacén, listos para salir", note: "El almacén" },
     cut:      { src: "images/mango-cut.jpg",      alt: "Un mango maduro abierto, con la pulpa dorada, sobre una carretilla de fruta recién cogida", note: "Un mango abierto" }
   },
 
