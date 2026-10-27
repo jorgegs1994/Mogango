@@ -5,7 +5,7 @@ The website for our family mango farm on Gran Canaria. It's one long scrolling p
 1. **Hero**: a full-screen photo of the groves and the headline.
 2. **The farm**: a short introduction to the family and the farm.
 3. **Island tour**: a dusk satellite map of Gran Canaria, in 3D, stays pinned on screen while you scroll. The camera flies slowly from finca to finca, each finca's name appears large over the map, and the tour ends on all three together.
-4. **Harvest**: three photos of picking, crates and the packing house.
+4. **Harvest**: picking, a looping video of the washing and sorting line, and the packing house.
 5. **In numbers**: four large totals that count up as they come into view.
 6. **The season**: a twelve-month strip. The deeper the fill, the bigger that month's harvest.
 7. **Varieties**: one full-screen panel per mango, sliding sideways as you scroll. Each links back to the fincas where it grows.
@@ -23,8 +23,8 @@ The photos in **`images/`** are the family's own, resized for the web (about 120
 | `hero-grove.jpg` | Top of the page, full screen |
 | `family.jpg` | The farm, next to the year |
 | `picking.jpg` | Harvest, photo 1 |
-| `crates.jpg` | Harvest, photo 2 |
-| `packing-house.jpg` | Harvest, photo 3 |
+| `processing.mp4` + `processing-poster.jpg` | Harvest, video 2 (muted loop; the poster shows with reduced motion) |
+| `warehouse-pallets.jpg` | Harvest, photo 3 |
 | `tommy-atkins.jpg`, `kent.jpg`, `osteen.jpg` | One full-screen panel per variety |
 | `mango-cut.jpg` | The closing zoom |
 

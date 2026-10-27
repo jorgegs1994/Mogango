@@ -140,11 +140,11 @@ em { font-style: italic; }
     radial-gradient(120% 90% at 28% 18%, color-mix(in srgb, var(--paper) 7%, transparent), transparent 62%),
     var(--tone);
 }
-.photo img {
+.photo img, .photo video {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
   opacity: 0; transition: opacity 1.2s var(--ease);
 }
-.photo.is-loaded img { opacity: 1; }
+.photo.is-loaded img, .photo.is-loaded video { opacity: 1; }
 .photo-note {
   position: absolute; left: 18px; right: 18px; bottom: 16px;
   color: color-mix(in srgb, var(--paper) 55%, transparent);

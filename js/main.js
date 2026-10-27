@@ -59,6 +59,19 @@
 
   function photo(box, p, eager) {
     box.classList.add("photo");
+    // A photo with a `video` plays it on a silent loop; with reduced motion
+    // the still `src` shows instead.
+    if (p.video && !reduceMotion) {
+      var video = document.createElement("video");
+      video.muted = video.loop = video.autoplay = video.playsInline = true;
+      video.preload = "metadata";
+      video.poster = p.src;
+      video.setAttribute("aria-label", p.alt);
+      video.addEventListener("loadeddata", function () { box.classList.add("is-loaded"); });
+      video.src = p.video;
+      box.appendChild(video);
+      return;
+    }
     var img = new Image();
     img.alt = p.alt;
     img.decoding = "async";
