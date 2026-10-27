@@ -61,7 +61,7 @@ window.MOGANGO = {
     picking:  { src: "images/picking.jpg",        alt: "Walking back down the finca path with fresh mangoes in both hands", note: "Picking" },
     crates:   { src: "images/crates.jpg",         alt: "Crates full of freshly picked mangoes, stacked in the packing house", note: "Full crates" },
     packing:  { src: "images/packing-house.jpg",  alt: "Pallets of Mogango boxes stacked high in the packing house", note: "The packing house" },
-    cut:      { src: "images/closing-valley.jpg", alt: "The terraced mango fincas of the valley in the sun", note: "The valley in the sun" }
+    cut:      { src: "images/mango-cut.jpg",      alt: "A ripe mango cut open to its golden flesh, held over a barrow of fresh-picked fruit", note: "A cut mango" }
   },
 
   // The map comes from Mapbox (https://www.mapbox.com). Paste your public
@@ -136,13 +136,13 @@ window.MOGANGO = {
   varieties: [
     { name: "Tommy Atkins", season: "July to August",
       taste: "Firm, travels well, with the deep red blush you see in every picture.",
-      photo: { src: "images/tommy-atkins.jpg", alt: "A ripe red Tommy Atkins mango held up beside the tree", note: "A Tommy Atkins mango" } },
+      photo: { src: "images/tommy-atkins.jpg", alt: "A cluster of deep red Tommy Atkins mangoes hanging from the tree", note: "Tommy Atkins mangoes on the tree" } },
     { name: "Kent",         season: "August to October",
       taste: "Rich and sweet with almost no fibre. Best eaten with a spoon.",
-      photo: { src: "images/kent.jpg",         alt: "A heap of green Kent mangoes with a soft red blush", note: "Kent mangoes" } },
+      photo: { src: "images/kent.jpg",         alt: "A large green Kent mango with a soft red blush, hanging among the leaves", note: "A Kent mango on the tree" } },
     { name: "Osteen",       season: "September to November",
       taste: "Long and purple-skinned, with firm, juicy flesh and almost no fibre. The late one.",
-      photo: { src: "images/osteen.jpg",       alt: "A barrow of purple Osteen mangoes, with one cut open to its golden flesh", note: "Osteen mangoes" } }
+      photo: { src: "images/osteen.jpg",       alt: "Purple Osteen mangoes hanging from the tree among dark green leaves", note: "Osteen mangoes on the tree" } }
   ],
 
   contact: {

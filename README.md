@@ -26,9 +26,9 @@ The photos in **`images/`** are the family's own, resized for the web (about 120
 | `crates.jpg` | Harvest, photo 2 |
 | `packing-house.jpg` | Harvest, photo 3 |
 | `tommy-atkins.jpg`, `kent.jpg`, `osteen.jpg` | One full-screen panel per variety |
-| `closing-valley.jpg` | The closing zoom |
+| `mango-cut.jpg` | The closing zoom |
 
-Shots that would still lift the page: a close-up of hands cutting a mango from the branch, a cut mango scored into cubes on a dark background, and a Kent mango on its own. Shoot in natural light, holding the phone sideways, with the subject in the centre.
+Shots that would still lift the page: a close-up of hands cutting a mango from the branch. Shoot in natural light, holding the phone sideways, with the subject in the centre.
 
 ## Editing the content
 
