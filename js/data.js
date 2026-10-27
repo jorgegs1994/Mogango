@@ -26,8 +26,8 @@ window.MOGANGO = {
     heroLine: "Family mango farm · Gran Canaria · since 1978",
 
     introLabel: "The farm",
-    introTitle: "Three generations, five valleys and one fruit we have never stopped *learning* about.",
-    introText: "Our grandfather planted two hundred trees on the terraces of the Mogán valley in 1978. Today the family looks after five groves across the south and west of the island. Every mango is still picked by hand, at the moment it is ready, and on a shop shelf within two days.",
+    introTitle: "Three generations, three fincas and one fruit we have never stopped *learning* about.",
+    introText: "Our grandfather planted two hundred trees on the terraces of the Mogán valley in 1978. Today the family looks after three fincas in the Mogán and Tasarte valleys. Every mango is still picked by hand, at the moment it is ready, and on a shop shelf within two days.",
 
     tourLabel: "The island",
 
@@ -39,7 +39,7 @@ window.MOGANGO = {
 
     seasonLabel: "The season",
     seasonTitle: "Six months of *sun*, one short season.",
-    seasonText: "The first fruit comes in April from the warm coast at Cercado de Espino. Most of the harvest falls between July and September.",
+    seasonText: "The first fruit comes in April from the warmest, lowest terraces. Most of the harvest falls between July and September.",
 
     varietiesLabel: "What we grow",
     varietiesTitle: "Five mangoes, five *characters*.",
@@ -70,51 +70,35 @@ window.MOGANGO = {
     island: [[-15.84, 27.73], [-15.35, 28.19]]
   },
 
+  // The family's three fincas, at their exact locations. Sizes, tree
+  // counts, years, varieties and stories are still placeholders.
   plantations: [
     {
-      id: "mogan",
-      name: "Finca Valle de Mogán",
+      id: "molino",
+      name: "Finca Molino de Viento",
       region: "Mogán valley",
-      lat: 27.884, lon: -15.722,
+      lat: 27.87506, lon: -15.72661,
       hectares: 38, trees: 4200, since: 1978,
       varieties: ["Kent", "Haden"],
       blurb: "Where it all started. Grandpa planted the first 200 trees on the terraces of the Mogán valley."
     },
     {
-      id: "veneguera",
-      name: "Finca Veneguera",
-      region: "Veneguera ravine",
-      lat: 27.864, lon: -15.768,
-      hectares: 45, trees: 5100, since: 1986,
+      id: "llanos",
+      name: "Finca Los Llanos",
+      region: "Mogán valley",
+      lat: 27.89222, lon: -15.719,
+      hectares: 45, trees: 5100, since: 1994,
       varieties: ["Tommy Atkins", "Keitt"],
-      blurb: "A quiet ravine running down to the sea. Afternoon sun gives these mangoes their deep red blush."
+      blurb: "Higher up the valley, on the flat land that gives the finca its name. The afternoon sun gives these mangoes their deep red blush."
     },
     {
-      id: "aldea",
-      name: "Finca La Aldea",
-      region: "La Aldea de San Nicolás",
-      lat: 27.985, lon: -15.775,
-      hectares: 29, trees: 3300, since: 1994,
-      varieties: ["Ataulfo"],
-      blurb: "The west coast's farming valley. Small, buttery honey mangoes, the family favourite for breakfast."
-    },
-    {
-      id: "espino",
-      name: "Finca Cercado de Espino",
-      region: "Arguineguín ravine",
-      lat: 27.818, lon: -15.665,
-      hectares: 41, trees: 4600, since: 2003,
-      varieties: ["Kent", "Keitt"],
-      blurb: "Warm, sheltered and close to the coast. These are always the first trees to flower each season."
-    },
-    {
-      id: "fataga",
-      name: "Finca Fataga",
-      region: "Fataga valley",
-      lat: 27.862, lon: -15.575,
-      hectares: 52, trees: 5800, since: 2011,
-      varieties: ["Tommy Atkins", "Haden", "Kent"],
-      blurb: "Our newest and biggest grove, among the palms of the Fataga valley, watered by drip irrigation."
+      id: "tasarte",
+      name: "Finca de Tasarte",
+      region: "Tasarte valley",
+      lat: 27.89072, lon: -15.78169,
+      hectares: 29, trees: 3300, since: 2003,
+      varieties: ["Ataulfo", "Kent"],
+      blurb: "A quiet valley running down to the west coast. Small, buttery honey mangoes, the family favourite for breakfast."
     }
   ],
 

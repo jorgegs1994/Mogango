@@ -263,7 +263,7 @@
    * scene = {
    *   mode: "overview" | "plantation" | "all" | "packing" | "delivery" | "finale",
    *   plantation: id, shop: index,
-   *   view: "island" or { center, zoom, pitch, bearing },
+   *   view: "island", "groves" or { center, zoom, pitch, bearing },
    *   truck: "start" | shop index | "end",
    *   follow: true to keep the camera on the truck
    * }
@@ -298,6 +298,12 @@
     if (scene.follow) {
       var start = [this.data.packingHouse.lon, this.data.packingHouse.lat];
       map.flyTo(Object.assign(move, { center: this.truckPos || start, zoom: 12.2, pitch: 62, bearing: -20 }));
+    } else if (scene.view === "groves") {
+      // Frame all the groves together, close enough that their names don't overlap.
+      var lons = this.data.plantations.map(function (p) { return p.lon; });
+      var lats = this.data.plantations.map(function (p) { return p.lat; });
+      map.fitBounds([[Math.min.apply(null, lons), Math.min.apply(null, lats)], [Math.max.apply(null, lons), Math.max.apply(null, lats)]],
+        Object.assign(move, { pitch: 45, bearing: -10, maxZoom: 13 }));
     } else if (scene.view === "island") {
       map.fitBounds(this.data.mapbox.island, Object.assign(move, { pitch: 0, bearing: 0 }));
     } else if (scene.view) {

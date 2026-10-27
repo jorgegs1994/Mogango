@@ -94,7 +94,7 @@
     label: D.islandName,
     scene: { mode: "overview", view: "island" },
     html: caption(esc(D.copy.tourLabel), esc(D.islandName) + ".", "",
-      "For more than " + (new Date().getFullYear() - totals.since) + " years our family has grown mangoes in the warm valleys of the island's south and west. Scroll to fly over every grove, then follow the truck to market.")
+      "For more than " + (new Date().getFullYear() - totals.since) + " years our family has grown mangoes in the warm valleys of the island's south-west. Scroll to fly over every finca, then follow the truck to market.")
   });
 
   var n = D.plantations.length;
@@ -105,18 +105,18 @@
       plantation: p.id,
       // Each grove gets a slightly different angle, so the flights feel like a tour.
       scene: { mode: "plantation", plantation: p.id, view: { center: [p.lon, p.lat], zoom: 13.6, pitch: 64, bearing: -30 + i * 18 } },
-      html: caption("Grove " + pad(i + 1) + " / " + pad(n) + " · " + esc(p.region), esc(p.name),
+      html: caption("Finca " + pad(i + 1) + " / " + pad(n) + " · " + esc(p.region), esc(p.name),
         fmt.format(p.hectares) + " ha <i>·</i> " + fmt.format(p.trees) + " trees <i>·</i> since " + p.since,
         esc(p.blurb), "Grows " + p.varieties.map(esc).join(", "))
     });
   });
 
   steps.push({
-    label: "All " + n + " groves",
-    scene: { mode: "all", view: "island" },
-    html: caption("Together", (WORDS[n] || n) + " groves, one family.",
+    label: "All " + n + " fincas",
+    scene: { mode: "all", view: "groves" },
+    html: caption("Together", (WORDS[n] || n) + " fincas, one family.",
       fmt.format(totals.hectares) + " ha <i>·</i> " + fmt.format(totals.trees) + " trees",
-      "Different soils and different winds give each grove its own flavour.")
+      "Different soils and different winds give each finca its own flavour.")
   });
 
   var ph = D.packingHouse;
