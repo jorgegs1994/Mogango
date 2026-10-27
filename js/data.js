@@ -31,8 +31,8 @@ window.MOGANGO = {
     heroLine: "Fincas de mango familiares · Gran Canaria · desde 1978",
 
     introLabel: "La finca",
-    introTitle: "Tres generaciones, tres fincas y una fruta de la que nunca dejamos de *aprender*.",
-    introText: "Nuestro abuelo plantó doscientos árboles en los bancales del barranco de Mogán en 1978. Hoy la familia cuida de tres fincas en Mogán y Tasarte. Cada mango se sigue cogiendo a mano, en su punto justo, y en menos de dos días está en la tienda.",
+    introTitle: "Empezó con tomates y berenjenas. Hoy son tres fincas y una fruta de la que nunca dejamos de *aprender*.",
+    introText: "La luna de miel de los abuelos fue un viaje en carricoche, cargados de fruta para el mercado; esa noche se quedaron en Las Palmas. El negocio empezó delante de su casa, entre dos eucaliptos enormes. A la sombra del de la derecha, el abuelo empaquetaba tomates, o eso se recuerda en casa. Después pasó al almacén del Molino de Viento y empezó con las berenjenas. Las cosas fueron a mejor: alquiló el almacén de los Quesada en El Cercado, sembró en terrenos alquilados por todo el barranco de Mogán y en la playa, en los de doña Concha, y llegó a mandar berenjenas hasta Róterdam. Con los años cambió las berenjenas por mangos. Hoy la familia cuida de tres fincas en Mogán y Tasarte, y cada mango se sigue cogiendo a mano, en su punto.",
 
     tourLabel: "La isla",
 
@@ -85,7 +85,7 @@ window.MOGANGO = {
       lat: 27.87506, lon: -15.72661,
       hectares: 38, trees: 4200, since: 1978,
       varieties: ["Kent", "Osteen"],
-      blurb: "Donde empezó todo. El abuelo plantó aquí los primeros 200 árboles, en los bancales del barranco de Mogán."
+      blurb: "En el Molino de Viento tuvo el abuelo su primer almacén, en los tiempos de las berenjenas. Hoy sus bancales dan Kent y Osteen."
     },
     {
       id: "llanos",
