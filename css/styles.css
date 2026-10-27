@@ -239,8 +239,10 @@ em { font-style: italic; }
 .has-motion .step.is-active .cap-foot { transition-delay: .5s; }
 
 /* Map markers: small, precise, quiet. */
-/* Mapbox positions each marker itself (absolute, moved by transform), so
-   these rules must never set position, top or left on the marker. */
+/* Mapbox moves each marker with a transform from the map's top-left corner.
+   Pin that origin here as well, so the markers stay in place even if
+   Mapbox's own stylesheet is late or blocked. */
+.marker, .truck-marker { position: absolute; top: 0; left: 0; }
 .marker { cursor: pointer; display: block; width: 22px; height: 22px; padding: 0; border: 0; background: none; color: inherit; font: inherit; }
 .marker .dot {
   position: absolute; left: 50%; top: 50%; width: 9px; height: 9px; margin: -4.5px 0 0 -4.5px;
