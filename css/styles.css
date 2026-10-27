@@ -198,10 +198,10 @@ em { font-style: italic; }
 /* The pinned stages use the large viewport height, so they still reach the
    bottom of the screen after a phone's browser bar slides away. */
 .map-stage { position: sticky; top: 0; height: 100lvh; overflow: hidden; }
-/* Keep the Mapbox logo above the browser bar while it is showing. */
-.map-stage .mapboxgl-ctrl-bottom-right { bottom: calc(100lvh - 100svh); }
-/* Quieter Mapbox logo and credits button: smaller and softer, still legible. */
-.map-stage .mapboxgl-ctrl-logo { opacity: .55; transform: scale(.8); transform-origin: right bottom; }
+/* Tuck the Mapbox logo and credits button tight into the bottom corner,
+   smaller and softer, still legible. */
+.map-stage .mapboxgl-ctrl-bottom-right .mapboxgl-ctrl { margin: 0 4px 4px 0; }
+.map-stage .mapboxgl-ctrl-logo { opacity: .5; transform: scale(.7); transform-origin: right bottom; }
 .map-stage .mapboxgl-ctrl-attrib.mapboxgl-compact { opacity: .5; }
 #map { position: absolute; inset: 0; background: var(--ink); }
 .map-shade {
