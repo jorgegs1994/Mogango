@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -45,12 +46,11 @@
 
     <section id="story" class="story" aria-label="Tour of our plantations and deliveries">
       <div class="map-stage">
-        <svg id="map" role="img" aria-label="Satellite map of Gran Canaria showing our plantations, the packing house, the delivery road and the shops"></svg>
+        <div id="map" role="region" aria-label="Map of Gran Canaria showing our plantations, the packing house, the delivery road and the shops"></div>
         <div class="map-hud" aria-hidden="true">
           <span class="hud-label" id="hud-label">The island</span>
           <span class="hud-progress"><span id="hud-bar"></span></span>
         </div>
-        <p class="map-credit" id="map-credit"></p>
       </div>
       <div class="steps" id="steps"></div>
       <nav class="rail" id="rail" aria-label="Tour steps"></nav>
@@ -131,7 +131,7 @@
         <ul id="shop-list" class="shop-list"></ul>
       </div>
     </div>
-    <p class="wrap fineprint"><span>&copy; <span id="year"></span> <span data-bind="farmName">Mogango</span>. Grown with care.</span><span id="footer-credit"></span></p>
+    <p class="wrap fineprint"><span>&copy; <span id="year"></span> <span data-bind="farmName">Mogango</span>. Grown with care.</span></p>
   </footer>
 
   <!-- Shared drawings -->
@@ -158,8 +158,8 @@
     </defs>
   </svg>
 
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"></script>
   <script src="js/data.js"></script>
-  <script src="js/route.js"></script>
   <script src="js/map.js"></script>
   <script src="js/main.js"></script>
 </body>

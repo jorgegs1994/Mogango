@@ -14,23 +14,21 @@ window.MOGANGO = {
   islandName: "Gran Canaria",
   tagline: "Sun-ripened mangoes from the valleys of Gran Canaria, grown by one family since 1978.",
 
-  // The satellite map image and the area it covers.
-  map: {
-    image: "img/gran-canaria-4000.jpg",
-    preview: "img/gran-canaria-1200.jpg",
-    west: -15.87, east: -15.33, south: 27.72, north: 28.2,
-    // Pixel size of the full image, used for its shape.
-    pixelWidth: 5310, pixelHeight: 5321,
-    credit: "Imagery: Copernicus Sentinel-2 (2024) · Roads: © OpenStreetMap contributors via Overture Maps · Terrain: AWS Terrain Tiles"
+  // The map comes from Mapbox (https://www.mapbox.com). Paste your public
+  // access token (it starts with "pk.") from your Mapbox account page.
+  mapbox: {
+    token: "",
+    style: "mapbox://styles/mapbox/satellite-streets-v12",
+    // The corners of the island, [longitude, latitude]: south-west, north-east.
+    island: [[-15.84, 27.73], [-15.35, 28.19]]
   },
 
-  // Each grove's name sits below it unless `label` says "left" or "right".
   plantations: [
     {
       id: "mogan",
       name: "Finca Valle de Mogán",
       region: "Mogán valley",
-      lat: 27.884, lon: -15.722, label: "right",
+      lat: 27.884, lon: -15.722,
       hectares: 38, trees: 4200, since: 1978,
       varieties: ["Kent", "Haden"],
       blurb: "Where it all started. Grandpa planted the first 200 trees on the terraces of the Mogán valley."
@@ -39,7 +37,7 @@ window.MOGANGO = {
       id: "veneguera",
       name: "Finca Veneguera",
       region: "Veneguera ravine",
-      lat: 27.864, lon: -15.768, label: "left",
+      lat: 27.864, lon: -15.768,
       hectares: 45, trees: 5100, since: 1986,
       varieties: ["Tommy Atkins", "Keitt"],
       blurb: "A quiet ravine running down to the sea. Afternoon sun gives these mangoes their deep red blush."
@@ -79,22 +77,14 @@ window.MOGANGO = {
     blurb: "Down by the coast at Arguineguín, every mango is washed, sorted by hand and packed within 24 hours of picking."
   },
 
-  // The road the truck drives is in js/route.js. `routeIndex` is the point
-  // on that road where each shop sits, so the truck stops at its door.
-  // `label` places the name: "right" (default), "left", "above" or "below".
+  // The truck drives from the packing house to each shop in this order,
+  // along the real roads Mapbox picks.
   shops: [
-    { name: "Frutería El Faro",    town: "Maspalomas", routeIndex: 57, label: "below" },
-    { name: "Mercado del Sureste", town: "Vecindario", routeIndex: 128 },
-    { name: "Frutas San Gregorio", town: "Telde",      routeIndex: 178 },
-    { name: "Puesto de Vegueta",   town: "Las Palmas de Gran Canaria", routeIndex: 237 },
-    { name: "Frutería Gáldar",     town: "Gáldar",     routeIndex: 377, label: "above" }
-  ],
-
-  // Extra names shown on the map for orientation.
-  landmarks: [
-    { name: "Roque Nublo", lat: 27.969, lon: -15.613 },
-    { name: "Pico de las Nieves", lat: 27.959, lon: -15.571 },
-    { name: "Agaete", lat: 28.1, lon: -15.7 }
+    { name: "Frutería El Faro",    town: "Maspalomas", lat: 27.76407, lon: -15.58146 },
+    { name: "Mercado del Sureste", town: "Vecindario", lat: 27.84179, lon: -15.44007 },
+    { name: "Frutas San Gregorio", town: "Telde",      lat: 27.99887, lon: -15.41845 },
+    { name: "Puesto de Vegueta",   town: "Las Palmas de Gran Canaria", lat: 28.10177, lon: -15.4157 },
+    { name: "Frutería Gáldar",     town: "Gáldar",     lat: 28.14108, lon: -15.65305 }
   ],
 
   // Tonnes harvested per month, used by the season chart.
