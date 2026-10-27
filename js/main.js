@@ -39,9 +39,12 @@
 
   // ---- Story -------------------------------------------------------------
 
-  var map = new window.IslandMap($("#map"), D);
-  var island = window.IslandMap.ISLAND_VIEW;
+  $("#map-credit").textContent = D.map.credit;
+  $("#footer-credit").textContent = "Map: " + D.map.credit;
+  var map = new window.IslandMap($("#map"), D, window.MOGANGO_ROUTE);
+  var island = map.islandView;
   var road = map.routeLen;
+  var followSpan = map.units(13000);
 
   var steps = [];
   steps.push({
@@ -49,7 +52,7 @@
     scene: { mode: "overview", view: island },
     html: "<p class='kicker'>Welcome</p><h2>This is " + esc(D.islandName) + ".</h2>" +
       "<p>Our family has grown mangoes here for more than " + (new Date().getFullYear() - totals.since) +
-      " years. Scroll down and we'll fly you over every one of our groves, then ride along with the truck that takes the fruit to market.</p>"
+      " years, in the warm valleys of the island's south and west. Scroll down and we'll fly you over every one of our groves, then ride along with the truck that takes the fruit to market.</p>"
   });
 
   D.plantations.forEach(function (p, i) {
@@ -60,7 +63,7 @@
     steps.push({
       label: p.name,
       plantation: p.id,
-      scene: { mode: "plantation", plantation: p.id, view: { cx: p.x, cy: p.y, span: p.radius * 8 } },
+      scene: { mode: "plantation", plantation: p.id, view: map.viewAt(p.lon, p.lat, 7000) },
       html: "<p class='kicker'>Grove " + (i + 1) + " of " + D.plantations.length + " · " + esc(p.region) + "</p>" +
         "<h2>" + esc(p.name) + "</h2><p>" + esc(p.blurb) + "</p>" + chips +
         "<p class='varieties-line'>Grows: " + p.varieties.map(function (v) { return "<span class='tag'>" + esc(v) + "</span>"; }).join(" ") + "</p>"
@@ -78,13 +81,13 @@
   var ph = D.packingHouse;
   steps.push({
     label: ph.name,
-    scene: { mode: "packing", view: { cx: ph.x, cy: ph.y, span: 200 } },
+    scene: { mode: "packing", view: map.viewAt(ph.lon, ph.lat, 6000) },
     html: "<p class='kicker'>Harvest day</p><h2>" + esc(ph.name) + "</h2><p>" + esc(ph.blurb) + "</p>"
   });
 
   steps.push({
     label: "On the road",
-    scene: { mode: "delivery", truck: 0, follow: 230 },
+    scene: { mode: "delivery", truck: 0, follow: followSpan },
     html: "<p class='kicker'>Loaded up</p><h2>The truck heads out.</h2>" +
       "<p>Crates in the back, still cool from the morning. Keep scrolling to ride along.</p>"
   });
@@ -93,7 +96,7 @@
     steps.push({
       label: s.name,
       shop: i,
-      scene: { mode: "delivery", shop: i, truck: map.shopLens[i], follow: 230 },
+      scene: { mode: "delivery", shop: i, truck: map.shopLens[i], follow: followSpan },
       html: "<p class='kicker'>Stop " + (i + 1) + " of " + D.shops.length + " · " + esc(s.town) + "</p>" +
         "<h2>" + esc(s.name) + "</h2>" +
         "<p>" + (i === D.shops.length - 1
@@ -106,7 +109,7 @@
     label: "Delivered",
     scene: { mode: "finale", truck: road, view: island },
     html: "<p class='kicker'>Delivered</p><h2>From our trees to your table.</h2>" +
-      "<p>Every week of the season the truck makes this loop, so the mangoes you buy were usually on the tree two days before.</p>" +
+      "<p>Every week of the season the truck makes this " + Math.round(map.routeLen * map.metersPerUnit / 1000) + " km loop around the island, so the mangoes you buy were usually on the tree two days before.</p>" +
       "<a class='btn' href='#numbers'>See the numbers</a>"
   });
 

@@ -4,101 +4,112 @@
  * Everything the story shows lives here, so you can change names, numbers
  * and places without touching the rest of the code.
  *
- * Map coordinates use the island drawing's own grid: x goes 0 (west) to
- * 1000 (east) and y goes 0 (north) to 700 (south). The island fills roughly
- * x 140–900 and y 100–600.
+ * Places use real coordinates: `lat` and `lon` in decimal degrees, the same
+ * numbers Google Maps shows when you right-click a spot (it shows lat first).
+ * The plantations, packing house and shop names below are placeholders until
+ * we have the family's real ones.
  */
 window.MOGANGO = {
   farmName: "Mogango",
-  islandName: "our island",
-  tagline: "Sun-ripened mangoes, grown by one family since 1978.",
+  islandName: "Gran Canaria",
+  tagline: "Sun-ripened mangoes from the valleys of Gran Canaria, grown by one family since 1978.",
 
+  // The satellite map image and the area it covers.
+  map: {
+    image: "img/gran-canaria-4000.jpg",
+    preview: "img/gran-canaria-1200.jpg",
+    west: -15.87, east: -15.33, south: 27.72, north: 28.2,
+    // Pixel size of the full image, used for its shape.
+    pixelWidth: 5310, pixelHeight: 5321,
+    credit: "Imagery: Copernicus Sentinel-2 (2024) · Roads: © OpenStreetMap contributors via Overture Maps · Terrain: AWS Terrain Tiles"
+  },
+
+  // Each grove's name sits below it unless `label` says "left" or "right".
   plantations: [
     {
-      id: "norte",
-      name: "Finca El Norte",
-      region: "Northern valley",
-      x: 420, y: 205, radius: 46,
+      id: "mogan",
+      name: "Finca Valle de Mogán",
+      region: "Mogán valley",
+      lat: 27.884, lon: -15.722, label: "right",
       hectares: 38, trees: 4200, since: 1978,
       varieties: ["Kent", "Haden"],
-      blurb: "Where it all started. Grandpa planted the first 200 trees here on land that used to be sugar cane."
+      blurb: "Where it all started. Grandpa planted the first 200 trees on the terraces of the Mogán valley."
     },
     {
-      id: "poniente",
-      name: "Los Ponientes",
-      region: "Western hills",
-      x: 265, y: 330, radius: 52,
+      id: "veneguera",
+      name: "Finca Veneguera",
+      region: "Veneguera ravine",
+      lat: 27.864, lon: -15.768, label: "left",
       hectares: 45, trees: 5100, since: 1986,
       varieties: ["Tommy Atkins", "Keitt"],
-      blurb: "Afternoon sun and a cool sea breeze give these mangoes their deep red blush."
+      blurb: "A quiet ravine running down to the sea. Afternoon sun gives these mangoes their deep red blush."
     },
     {
-      id: "valle",
-      name: "Valle Dorado",
-      region: "Central lowlands",
-      x: 368, y: 478, radius: 40,
+      id: "aldea",
+      name: "Finca La Aldea",
+      region: "La Aldea de San Nicolás",
+      lat: 27.985, lon: -15.775,
       hectares: 29, trees: 3300, since: 1994,
       varieties: ["Ataulfo"],
-      blurb: "Small, buttery honey mangoes, the family favourite for breakfast."
+      blurb: "The west coast's farming valley. Small, buttery honey mangoes, the family favourite for breakfast."
     },
     {
-      id: "costa",
-      name: "La Costa Sur",
-      region: "South coast",
-      x: 630, y: 488, radius: 44,
+      id: "espino",
+      name: "Finca Cercado de Espino",
+      region: "Arguineguín ravine",
+      lat: 27.818, lon: -15.665,
       hectares: 41, trees: 4600, since: 2003,
       varieties: ["Kent", "Keitt"],
-      blurb: "Sandy soil and long hot days. These are always the first trees to flower each season."
+      blurb: "Warm, sheltered and close to the coast. These are always the first trees to flower each season."
     },
     {
-      id: "oriente",
-      name: "Alto Oriente",
-      region: "Eastern slopes",
-      x: 738, y: 292, radius: 46,
+      id: "fataga",
+      name: "Finca Fataga",
+      region: "Fataga valley",
+      lat: 27.862, lon: -15.575,
       hectares: 52, trees: 5800, since: 2011,
       varieties: ["Tommy Atkins", "Haden", "Kent"],
-      blurb: "Our newest and biggest grove, terraced into the hillside with drip irrigation."
+      blurb: "Our newest and biggest grove, among the palms of the Fataga valley, watered by drip irrigation."
     }
   ],
 
   packingHouse: {
     name: "The Packing House",
-    x: 500, y: 345,
-    blurb: "Every mango is washed, sorted by hand and packed within 24 hours of picking."
+    lat: 27.76589, lon: -15.66902,
+    blurb: "Down by the coast at Arguineguín, every mango is washed, sorted by hand and packed within 24 hours of picking."
   },
 
-  // The truck drives this road in order. Each shop sits on one of these
-  // points, so the truck stops exactly at its door.
-  route: [
-    [500, 345], [455, 372], [400, 395], [330, 418], [262, 440], [205, 462],
-    [250, 512], [330, 540], [410, 552], [482, 552],
-    [560, 545], [640, 552], [720, 520], [780, 470], [818, 410],
-    [835, 340], [810, 270], [745, 205], [680, 168], [618, 150]
-  ],
-
+  // The road the truck drives is in js/route.js. `routeIndex` is the point
+  // on that road where each shop sits, so the truck stops at its door.
+  // `label` places the name: "right" (default), "left", "above" or "below".
   shops: [
-    { name: "Mercado Puerto Oeste", town: "West Port",  routeIndex: 5,  x: 205, y: 462, label: "below" },
-    { name: "Frutería La Plaza",    town: "San Miguel", routeIndex: 9,  x: 482, y: 552, label: "below" },
-    { name: "Tienda del Muelle",    town: "East Harbour", routeIndex: 14, x: 818, y: 410, label: "right" },
-    { name: "Super Norte",          town: "Villa Norte", routeIndex: 19, x: 618, y: 150, label: "above" }
+    { name: "Frutería El Faro",    town: "Maspalomas", routeIndex: 57, label: "below" },
+    { name: "Mercado del Sureste", town: "Vecindario", routeIndex: 128 },
+    { name: "Frutas San Gregorio", town: "Telde",      routeIndex: 178 },
+    { name: "Puesto de Vegueta",   town: "Las Palmas de Gran Canaria", routeIndex: 237 },
+    { name: "Frutería Gáldar",     town: "Gáldar",     routeIndex: 377, label: "above" }
   ],
 
-  // Scenery only.
-  mountain: { name: "Cerro Grande", x: 590, y: 320 },
+  // Extra names shown on the map for orientation.
+  landmarks: [
+    { name: "Roque Nublo", lat: 27.969, lon: -15.613 },
+    { name: "Pico de las Nieves", lat: 27.959, lon: -15.571 },
+    { name: "Agaete", lat: 28.1, lon: -15.7 }
+  ],
 
   // Tonnes harvested per month, used by the season chart.
   harvest: [
     { month: "Jan", tonnes: 0 },
     { month: "Feb", tonnes: 0 },
-    { month: "Mar", tonnes: 12 },
-    { month: "Apr", tonnes: 48 },
-    { month: "May", tonnes: 135 },
-    { month: "Jun", tonnes: 210 },
-    { month: "Jul", tonnes: 185 },
-    { month: "Aug", tonnes: 96 },
-    { month: "Sep", tonnes: 34 },
-    { month: "Oct", tonnes: 6 },
-    { month: "Nov", tonnes: 0 },
+    { month: "Mar", tonnes: 0 },
+    { month: "Apr", tonnes: 6 },
+    { month: "May", tonnes: 24 },
+    { month: "Jun", tonnes: 70 },
+    { month: "Jul", tonnes: 165 },
+    { month: "Aug", tonnes: 210 },
+    { month: "Sep", tonnes: 150 },
+    { month: "Oct", tonnes: 72 },
+    { month: "Nov", tonnes: 18 },
     { month: "Dec", tonnes: 0 }
   ],
 
@@ -112,7 +123,7 @@ window.MOGANGO = {
 
   contact: {
     email: "hola@mogango.example",
-    phone: "+00 000 000 000",
-    address: "The Packing House, Camino Real s/n"
+    phone: "+34 000 000 000",
+    address: "The Packing House, Arguineguín, Gran Canaria"
   }
 };
