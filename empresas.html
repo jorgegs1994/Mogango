@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Para empresas | Mogango</title>
+  <meta name="description" content="Mangos de Gran Canaria para fruterías, mayoristas y hostelería: disponibilidad por variedad, formatos y calibres, y presupuesto.">
+  <meta name="theme-color" content="#F3EEE4">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=15">
+</head>
+<body>
+  <a class="skip" href="#main">Saltar al contenido</a>
+
+  <header class="topbar is-solid">
+    <a class="wordmark" href="index.html" aria-label="Mogango, volver al inicio"><span class="logo" aria-hidden="true"></span></a>
+    <nav class="topnav" aria-label="Secciones">
+      <a href="index.html">Inicio</a>
+      <a href="#pedir" class="nav-cta">Pedir presupuesto</a>
+    </nav>
+  </header>
+
+  <main id="main">
+  <section id="empresas" class="trade trade-page" data-theme="light" aria-labelledby="trade-title">
+    <div class="trade-head">
+      <p class="label section-label" data-copy="tradeLabel"></p>
+      <h1 id="trade-title" class="display-md" data-copy="tradeTitle"></h1>
+      <p class="body-text" data-copy="tradeText"></p>
+    </div>
+
+    <div class="trade-block">
+      <div class="trade-side">
+        <h2 class="label" data-copy="calendarLabel"></h2>
+        <p class="body-text" data-copy="calendarText"></p>
+      </div>
+      <div class="trade-main">
+        <table class="calendar" id="calendar"></table>
+        <p class="calendar-key label"><span><i class="dot is-2"></i>Plena temporada</span><span><i class="dot is-1"></i>Inicio o final</span></p>
+      </div>
+    </div>
+
+    <div class="trade-block">
+      <div class="trade-side">
+        <h2 class="label" data-copy="formatsLabel"></h2>
+        <p class="body-text" data-copy="formatsNote"></p>
+      </div>
+      <ul class="trade-main formats" id="formats"></ul>
+    </div>
+
+    <div class="trade-block" id="pedir">
+      <div class="trade-side">
+        <h2 class="label" data-copy="orderLabel"></h2>
+        <ol class="order-steps" id="order-steps"></ol>
+      </div>
+      <form class="trade-main quote" id="quote" novalidate>
+        <div class="field"><label for="q-name">Nombre</label><input id="q-name" name="nombre" autocomplete="name" required></div>
+        <div class="field"><label for="q-company">Empresa</label><input id="q-company" name="empresa" autocomplete="organization" required></div>
+        <div class="field"><label for="q-type">Tipo de negocio</label><select id="q-type" name="tipo"></select></div>
+        <div class="field"><label for="q-email">Correo</label><input id="q-email" name="correo" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="q-phone">Teléfono <span>(opcional)</span></label><input id="q-phone" name="telefono" type="tel" autocomplete="tel"></div>
+        <div class="field"><label for="q-format">Formato</label><select id="q-format" name="formato"></select></div>
+        <fieldset class="field field-wide"><legend>Variedades</legend><div class="checks" id="q-varieties"></div></fieldset>
+        <div class="field field-wide"><label for="q-amount">Cantidad y semanas</label><input id="q-amount" name="cantidad" placeholder="Por ejemplo: 20 cajas por semana, de julio a septiembre"></div>
+        <div class="field field-wide"><label for="q-notes">Algo más <span>(opcional)</span></label><textarea id="q-notes" name="notas" rows="3"></textarea></div>
+        <div class="quote-foot field-wide">
+          <button type="submit" class="button">Pedir presupuesto</button>
+          <p class="label" id="quote-note" aria-live="polite">Se abrirá tu correo con la petición lista para enviar.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+  </main>
+
+  <footer id="contact" class="footer" data-theme="dark">
+    <div class="footer-cols">
+      <div>
+        <h2 class="label">La finca</h2>
+        <p class="footer-tag" data-bind="tagline"></p>
+      </div>
+      <div>
+        <h2 class="label">Escríbenos o visítanos</h2>
+        <p id="contact-lines"></p>
+      </div>
+      <div class="footer-shops">
+        <h2 class="label">Dónde encontrarlos</h2>
+        <ul id="shop-list" class="shop-list"></ul>
+      </div>
+    </div>
+    <p class="giant" aria-hidden="true"><span class="logo"></span></p>
+    <p class="fineprint label"><span>&copy; <span id="year"></span> <span data-bind="farmName">Mogango</span></span><span>Cultivados y cogidos a mano en Gran Canaria</span></p>
+  </footer>
+
+  <script src="js/data.js?v=15"></script>
+  <script src="js/trade.js?v=15"></script>
+</body>
+</html>
