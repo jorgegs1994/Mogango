@@ -94,7 +94,7 @@
     label: D.islandName,
     scene: { mode: "overview", view: "island" },
     html: caption(esc(D.copy.tourLabel), esc(D.islandName) + ".", "",
-      "For more than " + (new Date().getFullYear() - totals.since) + " years our family has grown mangoes in the warm valleys of the island's south-west. Scroll to fly over every finca, then follow the truck to market.")
+      "For more than " + (new Date().getFullYear() - totals.since) + " years our family has grown mangoes in the warm valleys of the island's south-west. Scroll to fly over every finca.")
   });
 
   var n = D.plantations.length;
@@ -117,38 +117,6 @@
     html: caption("Together", (WORDS[n] || n) + " fincas, one family.",
       fmt.format(totals.hectares) + " ha <i>·</i> " + fmt.format(totals.trees) + " trees",
       "Different soils and different winds give each finca its own flavour.")
-  });
-
-  var ph = D.packingHouse;
-  steps.push({
-    label: ph.name,
-    scene: { mode: "packing", view: { center: [ph.lon, ph.lat], zoom: 14.2, pitch: 55, bearing: 20 } },
-    html: caption("Harvest day", esc(ph.name), "", esc(ph.blurb))
-  });
-
-  steps.push({
-    label: "On the road",
-    scene: { mode: "delivery", truck: "start", follow: true },
-    html: caption("Loaded up", "The truck heads out.", "", "Crates in the back, still cool from the morning.")
-  });
-
-  D.shops.forEach(function (s, i) {
-    steps.push({
-      label: s.name,
-      shop: i,
-      scene: { mode: "delivery", shop: i, truck: i, follow: true },
-      html: caption("Stop " + pad(i + 1) + " / " + pad(D.shops.length) + " · " + esc(s.town), esc(s.name), "",
-        i === D.shops.length - 1
-          ? "Last stop. The truck is empty and the shelves are full."
-          : "Crates unloaded, and the first customers are already choosing.")
-    });
-  });
-
-  steps.push({
-    label: "Delivered",
-    scene: { mode: "finale", truck: "end", view: "island" },
-    html: caption("Delivered", "Two days from branch to shelf.", "",
-      "Every week of the season the truck makes this loop around the island.")
   });
 
   var stepsRoot = $("#steps"), rail = $("#rail");
@@ -194,7 +162,7 @@
 
   map.on("select", function (sel) {
     var idx = steps.findIndex(function (s) {
-      return sel.type === "plantation" ? s.plantation === sel.id : s.shop === sel.index;
+      return s.plantation === sel.id;
     });
     if (idx >= 0) goToStep(idx);
   });
@@ -205,7 +173,7 @@
     { value: totals.hectares, label: "Hectares of orchard" },
     { value: totals.trees, label: "Mango trees" },
     { value: totals.tonnes, label: "Tonnes a season" },
-    { value: totals.shops, label: "Shops on our route" }
+    { value: totals.shops, label: "Shops that sell them" }
   ];
   var statsRoot = $("#stats");
   stats.forEach(function (s) {

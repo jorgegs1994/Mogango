@@ -102,20 +102,13 @@ window.MOGANGO = {
     }
   ],
 
-  packingHouse: {
-    name: "The Packing House",
-    lat: 27.76589, lon: -15.66902,
-    blurb: "Down by the coast at Arguineguín, every mango is washed, sorted by hand and packed within 24 hours of picking."
-  },
-
-  // The truck drives from the packing house to each shop in this order,
-  // along the real roads Mapbox picks.
+  // The shops that sell our mangoes, listed at the foot of the page.
   shops: [
-    { name: "Frutería El Faro",    town: "Maspalomas", lat: 27.76407, lon: -15.58146 },
-    { name: "Mercado del Sureste", town: "Vecindario", lat: 27.84179, lon: -15.44007 },
-    { name: "Frutas San Gregorio", town: "Telde",      lat: 27.99887, lon: -15.41845 },
-    { name: "Puesto de Vegueta",   town: "Las Palmas de Gran Canaria", lat: 28.10177, lon: -15.4157 },
-    { name: "Frutería Gáldar",     town: "Gáldar",     lat: 28.14108, lon: -15.65305 }
+    { name: "Frutería El Faro",    town: "Maspalomas" },
+    { name: "Mercado del Sureste", town: "Vecindario" },
+    { name: "Frutas San Gregorio", town: "Telde" },
+    { name: "Puesto de Vegueta",   town: "Las Palmas de Gran Canaria" },
+    { name: "Frutería Gáldar",     town: "Gáldar" }
   ],
 
   // Tonnes harvested per month, used by the season strip.
