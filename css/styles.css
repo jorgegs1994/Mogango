@@ -390,7 +390,79 @@ em { font-style: italic; }
   .has-motion .v-hint i { width: 56px; height: 1px; background: var(--mango); }
 }
 
-/* ---- 8. Closing --------------------------------------------------------- */
+/* ---- 8. For businesses -------------------------------------------------- */
+
+.trade { padding: clamp(120px, 22vh, 240px) var(--gutter) clamp(120px, 22vh, 240px); }
+.trade-head { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: var(--gutter); align-items: end; }
+.trade-head .section-label { grid-column: 1 / -1; }
+.trade-head h2 { grid-column: 1 / 9; font-size: clamp(2.6rem, 5.4vw, 6.4rem); }
+.trade-head .body-text { grid-column: 9 / 13; padding-bottom: .6em; }
+.trade-block { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: var(--gutter); margin-top: clamp(80px, 14vh, 160px); padding-top: 28px; border-top: 1px solid var(--hair); }
+.trade-side { grid-column: 1 / 5; }
+.trade-side h3 { color: var(--fg); margin-bottom: 18px; }
+.trade-side .body-text { font-size: 14px; }
+.trade-main { grid-column: 5 / 13; }
+
+.calendar { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.calendar th, .calendar td { padding: 0; border-left: 1px solid var(--hair); }
+.calendar thead th { padding: 0 0 12px 10px; text-align: left; color: var(--fg); }
+.calendar thead th:first-child, .calendar tbody th { border-left: 0; }
+.calendar thead th b { font-weight: inherit; }
+.calendar tbody th { width: 9.5em; padding: 0 16px 0 0; text-align: left; font: 400 clamp(1.4rem, 2.2vw, 2rem)/1 var(--display); letter-spacing: -.01em; white-space: nowrap; }
+.calendar tbody tr { border-top: 1px solid var(--hair); }
+.calendar tbody tr:last-child { border-bottom: 1px solid var(--hair); }
+.calendar td { height: 64px; position: relative; }
+.calendar td::after { content: ""; position: absolute; inset: 14px 0; }
+.calendar td.is-1::after { background: color-mix(in srgb, var(--mango) 35%, transparent); }
+.calendar td.is-2::after { background: var(--mango); }
+.calendar-key { display: flex; gap: 28px; margin-top: 18px; }
+.calendar-key span { display: inline-flex; align-items: center; gap: 10px; }
+.dot { width: 18px; height: 10px; }
+.dot.is-1 { background: color-mix(in srgb, var(--mango) 35%, transparent); }
+.dot.is-2 { background: var(--mango); }
+
+.formats { list-style: none; margin: 0; padding: 0; }
+.formats li { display: grid; grid-template-columns: 1.2fr 1fr 1.3fr; gap: 16px; align-items: baseline; padding: 20px 0; border-top: 1px solid var(--hair); }
+.formats li:first-child { border-top: 0; padding-top: 0; }
+.formats li:last-child { border-bottom: 1px solid var(--hair); }
+.f-name { font: 400 clamp(1.6rem, 2.6vw, 2.4rem)/1 var(--display); letter-spacing: -.01em; }
+.f-detail { font-variant-numeric: tabular-nums; }
+.formats .label { text-align: right; }
+
+.order-steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+.order-steps li { display: grid; grid-template-columns: 34px 1fr; column-gap: 8px; padding: 16px 0; border-top: 1px solid var(--hair); font-size: 14px; color: var(--soft); }
+.order-steps li:first-child { border-top: 0; padding-top: 0; }
+.order-steps .label { grid-row: span 2; padding-top: 2px; }
+.order-steps b { font-weight: 500; color: var(--fg); }
+
+.quote { display: grid; grid-template-columns: 1fr 1fr; gap: 26px var(--gutter); }
+.field { display: flex; flex-direction: column; gap: 8px; min-width: 0; margin: 0; padding: 0; border: 0; }
+.field-wide { grid-column: 1 / -1; }
+.field label, .field legend { font: 500 11px/1.5 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--muted); padding: 0; }
+.field label span { letter-spacing: .1em; text-transform: none; }
+.field input, .field select, .field textarea {
+  width: 100%; padding: 10px 0; border: 0; border-bottom: 1px solid color-mix(in srgb, var(--fg) 35%, transparent); border-radius: 0;
+  background: transparent; color: var(--fg); font: 300 16px/1.4 var(--sans);
+  -webkit-appearance: none; appearance: none;
+}
+.field select { background: linear-gradient(45deg, transparent 50%, currentColor 50%) right 6px center / 6px 6px no-repeat, transparent; padding-right: 22px; }
+.field textarea { resize: vertical; }
+.field input::placeholder { color: var(--muted); }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-bottom-color: var(--mango); }
+.field.is-invalid input { border-bottom-color: var(--mango); }
+.checks { display: flex; flex-wrap: wrap; gap: 10px 28px; padding-top: 4px; }
+.checks label { display: inline-flex; align-items: center; gap: 10px; font: 300 16px/1.4 var(--sans); letter-spacing: 0; text-transform: none; color: var(--fg); cursor: pointer; }
+.checks input { width: 16px; height: 16px; padding: 0; border: 0; accent-color: var(--mango); margin: 0; -webkit-appearance: checkbox; appearance: auto; }
+.quote-foot { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: 8px; }
+.button {
+  padding: 16px 26px; border: 0; border-radius: 0; cursor: pointer;
+  background: var(--fg); color: var(--bg);
+  font: 500 12px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase;
+  transition: background-color .4s var(--ease), color .4s var(--ease);
+}
+.button:hover { background: var(--mango); color: var(--ink); }
+
+/* ---- 9. Closing --------------------------------------------------------- */
 
 .closing { position: relative; color: var(--paper); }
 .has-motion .closing { height: 240vh; }
@@ -401,7 +473,7 @@ em { font-style: italic; }
 .closing-media .photo-note { top: 96px; bottom: auto; left: auto; right: var(--gutter); text-align: right; }
 .closing-line { position: relative; z-index: 2; text-align: center; font-size: clamp(3.4rem, 10vw, 12rem); padding: 0 var(--gutter); }
 
-/* ---- 9. Footer ---------------------------------------------------------- */
+/* ---- 10. Footer --------------------------------------------------------- */
 
 .footer { padding: clamp(110px, 18vh, 200px) var(--gutter) 0; overflow: hidden; container-type: inline-size; }
 .footer-cols { display: grid; grid-template-columns: 1.1fr 1fr 1.5fr; gap: var(--gutter); }
@@ -475,6 +547,18 @@ em { font-style: italic; }
 
   .v-name { font-size: clamp(3.8rem, 19vw, 9rem); }
   .v-taste { font-size: 15px; }
+
+  .trade-head, .trade-block { display: block; }
+  .trade-head .body-text { margin-top: 28px; }
+  .trade-side { margin-bottom: 40px; }
+  .calendar thead th { padding: 0 0 10px; text-align: center; letter-spacing: 0; }
+  .calendar thead th span { display: none; }
+  .calendar tbody th { width: 6.2em; padding-right: 8px; font-size: 1.15rem; }
+  .calendar td { height: 48px; }
+  .calendar td::after { inset: 12px 0; }
+  .formats li { grid-template-columns: 1fr auto; row-gap: 4px; }
+  .formats .label { grid-column: 1 / -1; text-align: left; }
+  .quote { grid-template-columns: 1fr; }
 
   .footer-cols { grid-template-columns: 1fr; gap: 56px; }
   .fineprint { flex-direction: column; gap: 6px; }
