@@ -77,12 +77,17 @@ window.MOGANGO = {
 
   // The family's three fincas, at their exact locations. Sizes, tree
   // counts, years, varieties and stories are still placeholders.
+  // `camera` sets the map's angle for each finca: `bearing` is the compass
+  // direction the camera looks (0 = north) and `pitch` how far it tilts from
+  // straight down. Look along a ravine, not across it, or the ridges hide
+  // the finca.
   plantations: [
     {
       id: "molino",
       name: "Finca Molino de Viento",
       region: "Barranco de Mogán",
       lat: 27.87506, lon: -15.72661,
+      camera: { bearing: 25, pitch: 50 },
       hectares: 38, trees: 4200, since: 1978,
       varieties: ["Kent", "Osteen"],
       blurb: "En el Molino de Viento tuvo el abuelo su primer almacén, en los tiempos de las berenjenas. Hoy sus bancales dan Kent y Osteen."
@@ -92,6 +97,7 @@ window.MOGANGO = {
       name: "Finca Los Llanos",
       region: "Barranco de Mogán",
       lat: 27.89222, lon: -15.719,
+      camera: { bearing: 25, pitch: 50 },
       hectares: 45, trees: 5100, since: 1994,
       varieties: ["Tommy Atkins", "Osteen"],
       blurb: "Más arriba en el barranco, en el llano que da nombre a la finca. El sol de la tarde les da a estos mangos su color rojo intenso."
@@ -101,6 +107,7 @@ window.MOGANGO = {
       name: "Finca de Tasarte",
       region: "Barranco de Tasarte",
       lat: 27.89072, lon: -15.78169,
+      camera: { bearing: 6, pitch: 64 },
       hectares: 29, trees: 3300, since: 2003,
       varieties: ["Kent", "Tommy Atkins"],
       blurb: "Un barranco tranquilo que baja hasta la costa oeste. Bancales cálidos y resguardados donde el Kent madura despacio y dulce."

@@ -107,8 +107,8 @@
     steps.push({
       label: p.name,
       plantation: p.id,
-      // Each grove gets a slightly different angle, so the flights feel like a tour.
-      scene: { mode: "plantation", plantation: p.id, view: { center: [p.lon, p.lat], zoom: 13.6, pitch: 64, bearing: -30 + i * 18 } },
+      // Each finca has its own angle in js/data.js, chosen so the ridges don't hide it.
+      scene: { mode: "plantation", plantation: p.id, view: { center: [p.lon, p.lat], zoom: 13.6, pitch: p.camera ? p.camera.pitch : 55, bearing: p.camera ? p.camera.bearing : 0 } },
       html: caption("Finca " + pad(i + 1) + " / " + pad(n) + " · " + esc(p.region), esc(p.name),
         fmt.format(p.hectares) + " ha <i>·</i> " + fmt.format(p.trees) + " árboles <i>·</i> desde " + p.since,
         esc(p.blurb), "Cultiva " + p.varieties.map(esc).join(", "))

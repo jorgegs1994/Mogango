@@ -70,9 +70,12 @@
       bounds: cfg.island,
       fitBoundsOptions: { padding: this.padding() },
       interactive: false,
-      attributionControl: true,
+      // Mapbox's terms require its logo and credits on the map, so they stay,
+      // with the credits folded into the small (i) button.
+      attributionControl: false,
       logoPosition: "bottom-right"
     });
+    this.map.addControl(new mapboxgl.AttributionControl({ compact: true }), "bottom-right");
     var self = this;
     this.map.on("load", function () { self.onLoad(); });
     window.addEventListener("resize", function () {
