@@ -195,7 +195,11 @@ em { font-style: italic; }
 /* ---- 3. Island tour ----------------------------------------------------- */
 
 .story { position: relative; color: var(--paper); background: var(--ink); }
-.map-stage { position: sticky; top: 0; height: 100svh; overflow: hidden; }
+/* The pinned stages use the large viewport height, so they still reach the
+   bottom of the screen after a phone's browser bar slides away. */
+.map-stage { position: sticky; top: 0; height: 100lvh; overflow: hidden; }
+/* Keep the Mapbox logo above the browser bar while it is showing. */
+.map-stage .mapboxgl-ctrl-bottom-right { bottom: calc(100lvh - 100svh); }
 #map { position: absolute; inset: 0; background: var(--ink); }
 .map-shade {
   position: absolute; inset: 0; pointer-events: none;
@@ -219,7 +223,7 @@ em { font-style: italic; }
 .rail-tick:hover::before { background: var(--paper); }
 .rail-tick.is-active::before { width: 34px; background: var(--mango); }
 
-.steps { position: relative; z-index: 2; margin-top: -100svh; pointer-events: none; }
+.steps { position: relative; z-index: 2; margin-top: -100lvh; pointer-events: none; }
 .step { height: 118svh; display: flex; align-items: flex-end; padding: 0 var(--gutter) 13svh; }
 .step:first-child { height: 130svh; }
 .cap { position: sticky; bottom: 13svh; max-width: min(64vw, 1020px); }
@@ -387,7 +391,7 @@ em { font-style: italic; }
 
 .closing { position: relative; color: var(--paper); }
 .has-motion .closing { height: 240vh; }
-.closing-stage { --shade: .35; position: sticky; top: 0; height: 100svh; min-height: 560px; overflow: hidden; display: grid; place-items: center; background: var(--ink); }
+.closing-stage { --shade: .35; position: sticky; top: 0; height: 100lvh; min-height: 560px; overflow: hidden; display: grid; place-items: center; background: var(--ink); }
 .closing-media { position: absolute; inset: 0; will-change: transform; }
 .closing-stage::after { content: ""; position: absolute; inset: 0; background: var(--ink); opacity: var(--shade); pointer-events: none; }
 .closing-media .photo { position: absolute; inset: 0; }
