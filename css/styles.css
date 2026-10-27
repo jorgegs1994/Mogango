@@ -242,7 +242,7 @@ em { font-style: italic; }
 /* Mapbox moves each marker with a transform from the map's top-left corner.
    Pin that origin here as well, so the markers stay in place even if
    Mapbox's own stylesheet is late or blocked. */
-.marker, .truck-marker { position: absolute; top: 0; left: 0; }
+.marker { position: absolute; top: 0; left: 0; }
 .marker { cursor: pointer; display: block; width: 22px; height: 22px; padding: 0; border: 0; background: none; color: inherit; font: inherit; }
 .marker .dot {
   position: absolute; left: 50%; top: 50%; width: 9px; height: 9px; margin: -4.5px 0 0 -4.5px;
@@ -257,24 +257,8 @@ em { font-style: italic; }
   pointer-events: none;
 }
 .marker:hover .marker-label, .marker:focus-visible .marker-label,
-.marker.is-active .marker-label, .marker.is-target .marker-label { opacity: 1; transform: translate(0, -50%); }
+.marker.is-active .marker-label { opacity: 1; transform: translate(0, -50%); }
 .grove-marker.is-active .dot { background: var(--mango); transform: scale(1.2); }
-.packing-marker .dot { border-color: var(--paper); border-radius: 0; }
-#map[data-mode="packing"] .packing-marker .marker-label,
-#map[data-mode="delivery"] .packing-marker .marker-label { opacity: 1; transform: translate(0, -50%); }
-.shop-marker .dot { width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; border-color: color-mix(in srgb, var(--paper) 70%, transparent); }
-.shop-marker.is-delivered .dot { background: var(--paper); border-color: var(--paper); }
-.shop-marker.is-target .dot { transform: scale(1.4); }
-#map[data-mode="overview"] .shop-marker, #map[data-mode="plantation"] .shop-marker,
-#map[data-mode="overview"] .packing-marker, #map[data-mode="plantation"] .packing-marker { opacity: .35; }
-.truck-marker { width: 12px; height: 12px; opacity: 0; transition: opacity .6s var(--ease); pointer-events: none; }
-.truck-marker.is-visible { opacity: 1; }
-.truck-dot { position: absolute; inset: 0; border-radius: 50%; background: var(--mango); box-shadow: 0 0 0 2px var(--ink); }
-.truck-dot::after {
-  content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 1px solid var(--mango);
-  opacity: 0; animation: halo 2.2s var(--ease) infinite;
-}
-@keyframes halo { 0% { transform: scale(.4); opacity: .9; } 100% { transform: scale(1.6); opacity: 0; } }
 
 .mapboxgl-ctrl-bottom-right { z-index: 3; }
 .mapboxgl-ctrl.mapboxgl-ctrl-attrib { background: transparent; font: 400 10px/1.4 var(--sans); }

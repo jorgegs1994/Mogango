@@ -1,14 +1,14 @@
 # Mogango
 
-The website for our family mango farm on Gran Canaria. It's one long scrolling page that tells the story of our mangoes, from the trees to the shops, in a quiet editorial style: dark green, warm off-white, and a touch of mango orange.
+The website for our family mango farm on Gran Canaria. It's one long scrolling page that tells the story of our mangoes, from the trees to your table, in a quiet editorial style: dark green, warm off-white, and a touch of mango orange.
 
 1. **Hero**: a full-screen photo of the groves and the headline.
 2. **The farm**: a short introduction to the family and the farm.
-3. **Island tour**: a dusk satellite map of Gran Canaria, in 3D, stays pinned on screen while you scroll. The camera flies slowly from grove to grove, each grove's name appears large over the map, and then a truck drives the real roads from the packing house to every shop.
+3. **Island tour**: a dusk satellite map of Gran Canaria, in 3D, stays pinned on screen while you scroll. The camera flies slowly from finca to finca, each finca's name appears large over the map, and the tour ends on all three together.
 4. **Harvest**: three photos of picking, crates and the packing house.
 5. **In numbers**: four large totals that count up as they come into view.
 6. **The season**: a twelve-month strip. The deeper the fill, the bigger that month's harvest.
-7. **Varieties**: one full-screen panel per mango, sliding sideways as you scroll. Each links back to the groves where it grows.
+7. **Varieties**: one full-screen panel per mango, sliding sideways as you scroll. Each links back to the fincas where it grows.
 8. **Closing**: a slow zoom into a cut mango.
 9. **Footer**: contact details and the shops that sell our mangoes.
 
@@ -42,8 +42,8 @@ All the words, names, numbers, places and photos are in **`js/data.js`**, so mos
 
 - `copy`: every headline and paragraph on the page. Wrap a word in `*stars*` for italics or `_underscores_` for the orange accent.
 - `photos`: file, description (`alt`) and placeholder note for each photo.
-- `plantations`: each grove's name, region, location (`lat`/`lon`), size, tree count, varieties and a short story.
-- `packingHouse` and `shops`: where the truck starts and where it stops, in order. Mapbox works out the road between them.
+- `plantations`: each finca's name, region, location (`lat`/`lon`), size, tree count, varieties and a short story.
+- `shops`: the shops listed in the footer.
 - `mapbox`: your Mapbox token and the map's light (`dusk` by default).
 - `harvest`: tonnes per month for the season strip.
 - `varieties`: tasting notes, season and photo for each mango.
@@ -53,7 +53,7 @@ Locations are real coordinates in decimal degrees. To get one, right-click a spo
 
 ## The map (Mapbox)
 
-The map, the 3D terrain and the truck's route come from [Mapbox](https://www.mapbox.com), using its Standard Satellite style with a dusk light and the labels turned off. It needs a free account:
+The map and the 3D terrain come from [Mapbox](https://www.mapbox.com), using its Standard Satellite style with a dusk light and the labels turned off. It needs a free account:
 
 1. Sign up at mapbox.com and copy your **default public token** (it starts with `pk.`) from the account page.
 2. Paste it into `mapbox.token` in `js/data.js`.
@@ -82,7 +82,7 @@ Any static host works. For GitHub Pages, go to **Settings → Pages**, choose "D
 index.html       page structure
 css/styles.css   all styling: colours, type and layout
 js/data.js       the farm's words, numbers, places and photos (edit this)
-js/map.js        Mapbox map, markers and the delivery truck
+js/map.js        Mapbox map and the finca markers
 js/main.js       builds the tour, numbers, season strip, varieties and footer
 js/motion.js     smooth scrolling and scroll effects
 images/          the photos (see the list above)
