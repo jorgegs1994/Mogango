@@ -56,12 +56,12 @@ window.MOGANGO = {
   // Every photo on the page. `alt` is read aloud by screen readers; `note`
   // is shown in the placeholder and tells the family what to shoot.
   photos: {
-    hero:     { src: "images/hero-grove.jpg",    alt: "Rows of mango trees on a terraced hillside at golden hour",       note: "Trees at golden hour, low sun through the leaves" },
-    family:   { src: "images/family.jpg",        alt: "The family standing together between the mango trees",            note: "The family among the trees, natural and unposed" },
-    picking:  { src: "images/picking-hands.jpg", alt: "Hands cutting a ripe mango from the branch",                      note: "Close-up of hands picking a mango" },
-    crates:   { src: "images/crates.jpg",        alt: "Wooden crates full of freshly picked mangoes",                    note: "Full crates, shot from above" },
-    packing:  { src: "images/packing-house.jpg", alt: "Inside the packing house, mangoes being sorted by hand",          note: "Packing house interior, people sorting fruit" },
-    cut:      { src: "images/mango-cut.jpg",     alt: "A ripe mango cut open, its golden flesh scored into cubes",       note: "A cut mango, close and glistening, dark background" }
+    hero:     { src: "images/hero-grove.jpg",     alt: "Terraces of mango trees climbing the Mogán valley under a clear blue sky", note: "Trees on the terraces" },
+    family:   { src: "images/family.jpg",         alt: "Our grandfather sitting under a mango tree beside a branch heavy with fruit", note: "The family among the trees" },
+    picking:  { src: "images/picking.jpg",        alt: "Walking back down the finca path with fresh mangoes in both hands", note: "Picking" },
+    crates:   { src: "images/crates.jpg",         alt: "Crates full of freshly picked mangoes, stacked in the packing house", note: "Full crates" },
+    packing:  { src: "images/packing-house.jpg",  alt: "Pallets of Mogango boxes stacked high in the packing house", note: "The packing house" },
+    cut:      { src: "images/closing-valley.jpg", alt: "The terraced mango fincas of the valley in the sun", note: "The valley in the sun" }
   },
 
   // The map comes from Mapbox (https://www.mapbox.com). Paste your public
@@ -136,13 +136,13 @@ window.MOGANGO = {
   varieties: [
     { name: "Tommy Atkins", season: "July to August",
       taste: "Firm, travels well, with the deep red blush you see in every picture.",
-      photo: { src: "images/tommy-atkins.jpg", alt: "A Tommy Atkins mango with deep red skin",          note: "Tommy Atkins mangoes in a crate, close" } },
+      photo: { src: "images/tommy-atkins.jpg", alt: "A ripe red Tommy Atkins mango held up beside the tree", note: "A Tommy Atkins mango" } },
     { name: "Kent",         season: "August to October",
       taste: "Rich and sweet with almost no fibre. Best eaten with a spoon.",
-      photo: { src: "images/kent.jpg",         alt: "A Kent mango, green with a soft red blush",        note: "Kent mango, whole and halved, side light" } },
+      photo: { src: "images/kent.jpg",         alt: "A heap of green Kent mangoes with a soft red blush", note: "Kent mangoes" } },
     { name: "Osteen",       season: "September to November",
       taste: "Long and purple-skinned, with firm, juicy flesh and almost no fibre. The late one.",
-      photo: { src: "images/osteen.jpg",       alt: "An Osteen mango with purple-red skin",             note: "Osteen mangoes, whole and halved, dark background" } }
+      photo: { src: "images/osteen.jpg",       alt: "A barrow of purple Osteen mangoes, with one cut open to its golden flesh", note: "Osteen mangoes" } }
   ],
 
   contact: {

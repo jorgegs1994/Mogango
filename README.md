@@ -14,25 +14,21 @@ The website for our family mango farm on Gran Canaria. It's one long scrolling p
 
 The page works on phones, where the sideways varieties become a simple vertical list. Visitors who have "reduce motion" turned on get no scroll effects; everything just shows.
 
-## Photos we need
+## Photos
 
-Put each photo in the **`images/`** folder with exactly the file name below. Until a photo is there, the page shows a dark block with a short description of the shot, so the layout still looks finished.
+The photos in **`images/`** are the family's own, resized for the web (about 1200 to 1800 pixels on the long side, JPG). To swap one, replace the file with one of the same name, or change its path in `js/data.js`. If a file is missing, the page shows a dark block with a short description of the shot instead.
 
-Shoot in natural light, with no filters, and hold the phone **sideways** unless the note says upright. Bigger is better: at least 2000 pixels on the long side, saved as JPG.
+| File | Where it goes |
+| --- | --- |
+| `hero-grove.jpg` | Top of the page, full screen |
+| `family.jpg` | The farm, next to the year |
+| `picking.jpg` | Harvest, photo 1 |
+| `crates.jpg` | Harvest, photo 2 |
+| `packing-house.jpg` | Harvest, photo 3 |
+| `tommy-atkins.jpg`, `kent.jpg`, `osteen.jpg` | One full-screen panel per variety |
+| `closing-valley.jpg` | The closing zoom |
 
-| File | Where it goes | What to shoot |
-| --- | --- | --- |
-| `hero-grove.jpg` | Top of the page, full screen | Rows of trees on the hillside at golden hour, low sun through the leaves. Sideways, wide, with sky at the top. |
-| `family.jpg` | The farm | The family standing among the trees, relaxed and unposed. **Upright.** |
-| `picking-hands.jpg` | Harvest, photo 1 | Close-up of hands cutting a mango from the branch, with a bit of stem. |
-| `crates.jpg` | Harvest, photo 2 | Full crates of mangoes, shot from directly above. **Upright.** |
-| `packing-house.jpg` | Harvest, photo 3 | Inside the packing house, people sorting fruit by hand. Wide. |
-| `mango-cut.jpg` | Closing zoom | A ripe mango cut open and scored into cubes, close up, on a dark background. Keep the fruit in the centre. |
-| `tommy-atkins.jpg` | Varieties: Tommy Atkins | Tommy Atkins mangoes in a crate, close, showing the red blush. |
-| `kent.jpg` | Varieties: Kent | A Kent mango, whole and halved, lit from the side. Dark background. |
-| `osteen.jpg` | Varieties: Osteen | Osteen mangoes, whole and halved, showing the purple skin. Dark background. |
-
-The variety photos fill the whole screen with the name over the lower left, so leave some calm space at the bottom of the frame. The descriptions screen readers read out (`alt`) live next to each photo in `js/data.js`.
+Shots that would still lift the page: a close-up of hands cutting a mango from the branch, a cut mango scored into cubes on a dark background, and a Kent mango on its own. Shoot in natural light, holding the phone sideways, with the subject in the centre.
 
 ## Editing the content
 
